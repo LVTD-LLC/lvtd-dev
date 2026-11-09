@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO signup_limits (key) VALUES ($1)\n        ON CONFLICT (key) DO UPDATE SET\n        requests = CASE WHEN signup_limits.window_start <= now() - interval '1 hour' THEN 1 ELSE signup_limits.requests + 1 END,\n        window_start = CASE WHEN signup_limits.window_start <= now() - interval '1 hour' THEN now() ELSE signup_limits.window_start END\n        RETURNING requests",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "requests",
+        "type_info": "Int4",
+        "origin": {
+          "Table": {
+            "table": "signup_limits",
+            "name": "requests"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "2823b61633d950c9da45c0b30f8e828c58a7ebe2d31b3c0a0ca3ca30b79cab13"
+}

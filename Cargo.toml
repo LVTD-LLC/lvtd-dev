@@ -1,0 +1,77 @@
+[workspace]
+resolver = "3"
+members = ["app", "crates/core", "crates/auth"]
+default-members = ["app"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+license = "SEE LICENSE IN LICENSE.md"
+publish = false
+
+# No `unsafe` in our own code: memory-safety bugs and undefined behaviour
+# stay in dependencies that test for them, not in the app. If a crate
+# genuinely needs it, lower this to "deny" and `#[allow(unsafe_code)]` the
+# one spot with a `// SAFETY:` comment.
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.dependencies]
+app-core = { package = "core", path = "crates/core" }
+app-auth = { package = "auth", path = "crates/auth" }
+
+anyhow = "1.0"
+argon2 = "0.6"
+axum = { version = "0.8", default-features = false, features = ["form", "http1", "json", "query", "tokio", "matched-path", "tracing"] }
+dotenvy = "0.15"
+getrandom = "0.4"
+maud = "0.27"
+pulldown-cmark = { version = "0.13.6", default-features = false, features = ["html"] }
+toml = "1.1"
+rust-embed = { version = "8.12", features = ["include-exclude"] }
+serde = { version = "1.0", features = ["derive"] }
+sha2 = "0.11"
+sqlx = { version = "0.9", default-features = false, features = [
+  "runtime-tokio",
+  "tls-rustls-ring-native-roots",
+  "postgres",
+  "migrate",
+  "macros",
+  "uuid",
+  "time",
+] }
+thiserror = "2.0"
+time = { version = "0.3", features = ["serde", "formatting", "macros"] }
+tokio = { version = "1.53.3", features = ["macros", "rt-multi-thread", "net", "signal", "sync", "time"] }
+tower = "0.5"
+tower-http = { version = "0.7", features = ["trace", "timeout", "limit"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.27", features = ["v7", "serde"] }
+
+# dev
+http-body-util = "0.1"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+strip = true
+
+[profile.dev.package.argon2]
+# Argon2 is unusably slow unoptimised; sign-in would take seconds in dev/test.
+opt-level = 3
+
+# Social cards render at startup; unoptimised rasterizing and shaping would slow every dev run.
+[profile.dev.package.tiny-skia]
+opt-level = 3
+[profile.dev.package.tiny-skia-path]
+opt-level = 3
+[profile.dev.package.skrifa]
+opt-level = 3
+[profile.dev.package.read-fonts]
+opt-level = 3
+[profile.dev.package.harfrust]
+opt-level = 3

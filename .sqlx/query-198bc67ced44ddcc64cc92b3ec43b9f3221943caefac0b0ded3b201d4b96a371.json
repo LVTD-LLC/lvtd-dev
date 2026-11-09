@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM social_login_confirmations",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "198bc67ced44ddcc64cc92b3ec43b9f3221943caefac0b0ded3b201d4b96a371"
+}

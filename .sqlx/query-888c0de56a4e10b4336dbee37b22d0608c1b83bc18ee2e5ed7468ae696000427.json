@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM social_login_flows WHERE expires_at <= now()",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "888c0de56a4e10b4336dbee37b22d0608c1b83bc18ee2e5ed7468ae696000427"
+}

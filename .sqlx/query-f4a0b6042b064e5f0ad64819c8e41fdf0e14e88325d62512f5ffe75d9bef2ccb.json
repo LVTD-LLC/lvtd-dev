@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM oauth_tokens WHERE user_id = $1 AND id NOT IN (SELECT id FROM oauth_tokens WHERE user_id = $1 ORDER BY created_at DESC LIMIT $2)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Int8"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "f4a0b6042b064e5f0ad64819c8e41fdf0e14e88325d62512f5ffe75d9bef2ccb"
+}

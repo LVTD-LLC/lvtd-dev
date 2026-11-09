@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM totp_secrets WHERE user_id = $1 RETURNING confirmed_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "confirmed_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "totp_secrets",
+            "name": "confirmed_at"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "eefd0e2628faecd1867d194e450e5c1caa2e2d931c9e718ffb6c022038c0826f"
+}

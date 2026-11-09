@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT customer_id FROM billing_accounts WHERE user_id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "customer_id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_accounts",
+            "name": "customer_id"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "479e7552cf19302064de1d0481839667b08944696bc921f5511af9dee461de92"
+}

@@ -1,0 +1,42 @@
+[package]
+name = "core"
+description = "Config, database, errors, telemetry and HTTP plumbing shared by every LVTD crate."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+# Social card images rendered in pure Rust (`og`): rasterizer, font outlines, text shaping.
+og = ["dep:tiny-skia", "dep:skrifa", "dep:harfrust"]
+
+[dependencies]
+# HTML parsing and Markdown serialization happen only during public-route setup.
+htmd = "0.5.5"
+anyhow.workspace = true
+axum.workspace = true
+sqlx.workspace = true
+# `fs` for the local upload directory (storage).
+tokio = { workspace = true, features = ["fs"] }
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+getrandom.workspace = true
+# Already in the tree (API keys, webhooks); sign S3 requests without an SDK.
+hmac = "0.13"
+sha2.workspace = true
+serde.workspace = true
+serde_json = "1"
+time.workspace = true
+uuid.workspace = true
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
+tiny-skia = { version = "0.12", default-features = false, features = ["std", "simd", "png-format"], optional = true }
+skrifa = { version = "0.48", optional = true }
+harfrust = { version = "0.14", optional = true }
+
+[dev-dependencies]
+http-body-util.workspace = true

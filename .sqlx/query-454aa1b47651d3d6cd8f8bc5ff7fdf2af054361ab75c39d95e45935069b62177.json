@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT delivered FROM pending_signups",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "delivered",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "delivered"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "454aa1b47651d3d6cd8f8bc5ff7fdf2af054361ab75c39d95e45935069b62177"
+}

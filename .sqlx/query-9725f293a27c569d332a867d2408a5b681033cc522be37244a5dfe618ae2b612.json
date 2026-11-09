@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE pending_signups SET last_sent_at = now() - interval '61 seconds'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "9725f293a27c569d332a867d2408a5b681033cc522be37244a5dfe618ae2b612"
+}

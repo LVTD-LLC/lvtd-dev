@@ -1,0 +1,21 @@
+# Weekly pull requests that update dependencies. Each one runs CI, so a
+# green update is safe to merge. Security fixes for known vulnerabilities
+# also need "Dependabot security updates" on in the repository's settings.
+version: 2
+updates:
+  - package-ecosystem: cargo
+    directories: ["/", "/fuzz"]
+    schedule:
+      interval: weekly
+    groups:
+      # One pull request for every compatible update instead of one per crate.
+      cargo:
+        update-types: [minor, patch]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly

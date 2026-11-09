@@ -1,0 +1,35 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO oauth_clients (id, secret_hash, name, client_uri, redirect_uris, token_endpoint_auth_method, grant_types, scope) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING created_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "created_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "created_at"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Bytea",
+        "Text",
+        "Text",
+        "TextArray",
+        "Text",
+        "TextArray",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "fc1a7ea317cb9286e6fc0d4516991d4d30ba303c87970e2ca9399d32967a0be7"
+}

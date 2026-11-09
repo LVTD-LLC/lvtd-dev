@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO billing_checkouts (id, user_id, mode, price_id, email) VALUES ($1, $2, 'payment', 'price_test', 'owner@example.com')",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "e846e039f50a77b8a1e053c28873c09d8b21395cd04297684bad119f4cb9abfc"
+}

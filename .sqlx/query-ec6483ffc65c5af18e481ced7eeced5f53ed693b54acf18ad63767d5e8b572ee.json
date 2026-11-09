@@ -1,0 +1,50 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT token_hash, code_hash, last_sent_at FROM pending_signups",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "token_hash",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "token_hash"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "code_hash",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "code_hash"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "last_sent_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "last_sent_at"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "ec6483ffc65c5af18e481ced7eeced5f53ed693b54acf18ad63767d5e8b572ee"
+}

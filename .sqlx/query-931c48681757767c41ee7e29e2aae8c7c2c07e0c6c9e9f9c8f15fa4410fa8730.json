@@ -1,0 +1,100 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, name, client_uri, redirect_uris, token_endpoint_auth_method, grant_types, secret_hash FROM oauth_clients WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "name",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "name"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "client_uri",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "client_uri"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "redirect_uris",
+        "type_info": "TextArray",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "redirect_uris"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "token_endpoint_auth_method",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "token_endpoint_auth_method"
+          }
+        }
+      },
+      {
+        "ordinal": 5,
+        "name": "grant_types",
+        "type_info": "TextArray",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "grant_types"
+          }
+        }
+      },
+      {
+        "ordinal": 6,
+        "name": "secret_hash",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "secret_hash"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "931c48681757767c41ee7e29e2aae8c7c2c07e0c6c9e9f9c8f15fa4410fa8730"
+}

@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE indexnow_state SET snapshot = $2 WHERE origin = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "87cf0991e3f58daab1a1cf9cc7bb6a32f23dc57cea84f7458ac0befc76d5504e"
+}

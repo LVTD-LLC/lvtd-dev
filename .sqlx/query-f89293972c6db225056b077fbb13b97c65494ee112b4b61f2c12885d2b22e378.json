@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE signup_limits SET window_start = now() - interval '61 minutes' WHERE key = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "f89293972c6db225056b077fbb13b97c65494ee112b4b61f2c12885d2b22e378"
+}

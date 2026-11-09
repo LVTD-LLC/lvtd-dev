@@ -1,0 +1,18 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO billing_checkouts (id, user_id, mode, price_id, email) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (user_id) WHERE active DO NOTHING",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Text",
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "0e12cbe4961bddaf60cddddbfb7aa5151186a6820b157a0c6078b7fd1de38a16"
+}

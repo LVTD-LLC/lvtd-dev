@@ -1,0 +1,13 @@
+# Integration tests in the app also exercise shared workspace code.
+test_workspace = true
+# The parser visits feature-gated source too: compile it so mutations are real.
+all_features = true
+# Also protect direct `cargo mutants` runs from an inherited shared build cache.
+additional_cargo_args = ["--locked", "--target-dir", "target"]
+# Keep the baseline: a failing test suite is not evidence of a caught mutant.
+timeout_multiplier = 3.0
+minimum_test_timeout = 60.0
+build_timeout_multiplier = 3.0
+
+# This is the simulated WebAuthn authenticator used only by tests, not product code.
+exclude_globs = ["crates/auth/src/testing.rs"]

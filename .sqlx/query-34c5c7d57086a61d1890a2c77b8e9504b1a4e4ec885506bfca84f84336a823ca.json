@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT secret, last_used_step FROM totp_secrets WHERE user_id = $1 AND confirmed_at IS NOT NULL FOR UPDATE",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "secret",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "totp_secrets",
+            "name": "secret"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "last_used_step",
+        "type_info": "Int8",
+        "origin": {
+          "Table": {
+            "table": "totp_secrets",
+            "name": "last_used_step"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "34c5c7d57086a61d1890a2c77b8e9504b1a4e4ec885506bfca84f84336a823ca"
+}

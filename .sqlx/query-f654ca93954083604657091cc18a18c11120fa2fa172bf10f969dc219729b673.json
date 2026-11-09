@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM oauth_clients c WHERE COALESCE(c.last_used_at, c.created_at) < now() - make_interval(days => $1) AND NOT EXISTS (SELECT 1 FROM oauth_tokens t WHERE t.client_id = c.id) AND NOT EXISTS (SELECT 1 FROM oauth_codes o WHERE o.client_id = c.id)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "f654ca93954083604657091cc18a18c11120fa2fa172bf10f969dc219729b673"
+}

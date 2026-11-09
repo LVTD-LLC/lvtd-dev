@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE billing_subscriptions SET status = 'canceled' WHERE user_id = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "2dab97a81279ffbe4637bf55b269fff445bace7aa959e4ee947861e8e0b2202e"
+}

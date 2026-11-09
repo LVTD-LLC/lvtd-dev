@@ -1,0 +1,47 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT encode(token_hash, 'hex') AS \"hash!\", prefix, name FROM api_keys WHERE user_id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "hash!",
+        "type_info": "Text",
+        "origin": "Expression"
+      },
+      {
+        "ordinal": 1,
+        "name": "prefix",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "api_keys",
+            "name": "prefix"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "name",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "api_keys",
+            "name": "name"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      null,
+      false,
+      false
+    ]
+  },
+  "hash": "51b7743dabe1596635831d4a97035aeaffd91ace4b698c79d8c972a5a8550d29"
+}

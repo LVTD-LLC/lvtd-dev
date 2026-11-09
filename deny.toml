@@ -1,0 +1,43 @@
+# Supply-chain checks for `cargo deny check`, run in CI (.github/workflows/ci.yml).
+# Advisories come from the RustSec database: a dependency with a known
+# vulnerability, or one marked unmaintained, fails the build.
+[graph]
+# Check optional dependencies too, so every Cargo feature combination is covered.
+all-features = true
+
+[advisories]
+# To accept an advisory deliberately, add its ID with a reason:
+# ignore = [{ id = "RUSTSEC-0000-0000", reason = "..." }]
+ignore = []
+
+[licenses]
+# Permissive licenses only: nothing here obliges you to publish your own code.
+allow = [
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BSL-1.0",
+    "CC0-1.0",
+    "CDLA-Permissive-2.0",
+    "ISC",
+    "MIT",
+    "MIT-0",
+    "NCSA", # LLVM libFuzzer (development-only fuzz workspace).
+    "Unicode-3.0",
+    "Unlicense",
+    "Zlib",
+]
+
+[licenses.private]
+# This workspace's own crates are `publish = false`; they carry your license.
+ignore = true
+
+[bans]
+# Duplicate versions come from upstream crates and are not worth failing on.
+multiple-versions = "allow"
+
+[sources]
+# Dependencies come from crates.io only.
+unknown-registry = "deny"
+unknown-git = "deny"

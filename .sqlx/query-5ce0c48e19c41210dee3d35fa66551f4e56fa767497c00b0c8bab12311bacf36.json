@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT secret FROM totp_secrets WHERE user_id = $1 AND confirmed_at IS NULL",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "secret",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "totp_secrets",
+            "name": "secret"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "5ce0c48e19c41210dee3d35fa66551f4e56fa767497c00b0c8bab12311bacf36"
+}

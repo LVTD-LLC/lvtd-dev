@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE pending_signups SET delivered = $3 WHERE token_hash = $1 AND code_hash = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Bytea",
+        "Bytea",
+        "Bool"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "5f8152c8ebbc7aec8f9fbed9d488308b266ffc0be75282d588b5a531b853115c"
+}

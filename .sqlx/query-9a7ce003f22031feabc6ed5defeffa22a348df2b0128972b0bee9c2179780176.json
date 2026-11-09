@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT last_sent_at FROM pending_signups WHERE token_hash = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "last_sent_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "last_sent_at"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "9a7ce003f22031feabc6ed5defeffa22a348df2b0128972b0bee9c2179780176"
+}

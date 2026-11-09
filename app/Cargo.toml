@@ -1,0 +1,114 @@
+[package]
+name = "lvtd-dev"
+description = "LVTD: a SaaS starter in Rust. Axum, Maud, Postgres, one binary."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+default-run = "lvtd-dev"
+
+[lints]
+workspace = true
+
+[features]
+default = ["auth", "google", "github", "blog", "docs", "stripe", "api", "mcp", "storage", "qdrant", "sentry-errors", "sentry-traces", "sentry-logs", "sentry-metrics", "sentry-replay", "posthog-web", "posthog-product", "posthog-logs", "posthog-traces"]
+# Accounts: email-code sign-up, sign-in, passkeys, two-factor, settings, the dashboard
+# and the admin panel. Off means a public site with no accounts; the features below
+# that act on behalf of a user turn it on.
+auth = []
+# Sign up and sign in with Google (OpenID Connect), linked from account settings.
+# Hidden until GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set.
+google = ["social-login", "dep:jsonwebtoken"]
+# Sign up and sign in with GitHub (an OAuth App), linked from account settings.
+# Hidden until GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET are set.
+github = ["social-login", "reqwest/json"]
+# Internal: the provider-neutral sign-in module both of the above share.
+social-login = ["auth"]
+# The JSON API documents itself: OpenAPI at /api/v1/openapi.json, Swagger UI at /api/v1/docs.
+api = ["auth", "dep:utoipa", "dep:utoipa-axum"]
+# The MCP server authenticates with the API feature's keys.
+mcp = ["api"]
+# File uploads to an S3-compatible bucket or the local disk (app_core::storage),
+# with profile pictures in Settings as the example. Multipart forms need axum's parser.
+storage = ["auth", "axum/multipart"]
+stripe = ["auth", "reqwest/query", "reqwest/json"]
+# Vector search on Qdrant over its REST API; bring your own embeddings.
+qdrant = ["auth", "reqwest/json"]
+# Markdown parsing is optional; social cards are available in every build.
+docs = ["dep:pulldown-cmark", "dep:toml"]
+blog = ["dep:pulldown-cmark", "dep:toml", "time/parsing"]
+
+sentry-errors = ["sentry-server", "sentry/backtrace", "sentry/panic", "sentry/anyhow"]
+sentry-traces = ["sentry-layer"]
+sentry-logs = ["sentry-layer", "sentry/logs"]
+sentry-metrics = ["sentry-server", "sentry/metrics"]
+sentry-replay = ["sentry"]
+# Internal dependency groups; choose the capabilities above.
+sentry = ["dep:sentry-types"]
+sentry-server = ["sentry", "dep:sentry"]
+sentry-layer = ["sentry-server", "sentry/tracing", "dep:tracing-subscriber"]
+
+posthog = []
+posthog-web = ["posthog"]
+posthog-product = ["posthog-server"]
+posthog-logs = ["posthog-otlp"]
+posthog-traces = ["posthog-otlp"]
+# Internal dependency groups; choose the capabilities above.
+posthog-server = ["posthog", "dep:posthog-rs"]
+posthog-otlp = ["posthog", "dep:opentelemetry", "dep:opentelemetry_sdk", "dep:opentelemetry-appender-tracing", "dep:tracing-opentelemetry", "dep:opentelemetry-otlp", "dep:tracing-subscriber"]
+
+[dependencies]
+reqwest = { version = "0.13", default-features = false, features = ["form", "rustls"] }
+hmac = "0.13"
+hex = "0.4"
+getrandom.workspace = true
+uuid.workspace = true
+app-core.workspace = true
+app-core.features = ["og"]
+app-auth.workspace = true
+
+anyhow.workspace = true
+thiserror.workspace = true
+axum.workspace = true
+dotenvy.workspace = true
+maud.workspace = true
+pulldown-cmark = { workspace = true, optional = true }
+toml = { workspace = true, optional = true }
+rust-embed.workspace = true
+serde.workspace = true
+sha2.workspace = true
+sqlx.workspace = true
+time.workspace = true
+tokio.workspace = true
+tower-http.workspace = true
+tracing.workspace = true
+
+posthog-rs = { version = "0.27", optional = true }
+# Passkey ceremonies exchange JSON with the browser in every build.
+serde_json = "1"
+opentelemetry = { version = "0.33", optional = true }
+opentelemetry_sdk = { version = "0.33", optional = true }
+opentelemetry-appender-tracing = { version = "0.33", optional = true }
+tracing-opentelemetry = { version = "0.34", optional = true }
+tracing-subscriber = { workspace = true, optional = true }
+opentelemetry-otlp = { version = "0.33", default-features = false, features = ["http-proto", "reqwest-blocking-client", "reqwest-rustls", "trace", "logs", "internal-logs"], optional = true }
+
+sentry = { version = "0.49.3", default-features = false, features = ["contexts", "rustls", "reqwest"], optional = true }
+
+sentry-types = { version = "0.49.3", optional = true }
+
+# Verifies Google ID tokens against Google's published keys; aws-lc-rs is already in the tree.
+jsonwebtoken = { version = "11.1", default-features = false, features = ["aws_lc_rs"], optional = true }
+
+utoipa = { version = "6", default-features = false, features = ["macros", "uuid"], optional = true }
+utoipa-axum = { version = "0.3", optional = true }
+
+[dev-dependencies]
+app-auth = { workspace = true, features = ["test-support"] }
+opentelemetry-proto = { version = "0.33", default-features = false, features = ["gen-tonic-messages", "logs", "trace"] }
+prost = "0.14"
+http-body-util.workspace = true
+# Captures the console mail transport's log output in tests.
+tracing-subscriber.workspace = true
+tower = { workspace = true, features = ["util"] }

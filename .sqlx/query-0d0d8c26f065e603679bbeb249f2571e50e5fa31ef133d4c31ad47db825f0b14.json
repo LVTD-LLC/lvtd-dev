@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM pending_signups WHERE token_hash = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "0d0d8c26f065e603679bbeb249f2571e50e5fa31ef133d4c31ad47db825f0b14"
+}

@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO jobs (id, kind, payload, max_attempts) VALUES ($1, 'count', '{\"wrong\": true}', 5)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "a8fb7335cb724d1a417f813b002a493e0e8d951bb28611a1215071e064a7fbca"
+}

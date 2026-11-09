@@ -1,0 +1,104 @@
+# Deploys lvtd-dev to CapRover on every push to main.
+#
+# One-time setup:
+#   1. In CapRover, create app `lvtd-dev`, enable "App Token" under
+#      Deployment, add your domain, enable HTTPS and force HTTPS.
+#   2. Repository secrets: CAPROVER_SERVER (e.g. https://captain.example.com)
+#      and APP_TOKEN (the app token from step 1).
+#   3. Optional repository variable PRODUCTION_URL (e.g. https://example.com)
+#      to verify the deployed revision after rollout.
+#   4. Give CapRover pull access to ghcr.io (Cluster → Docker Registries) if
+#      the package is private.
+#
+# Optional background-job worker (same image, second app, see docs/caprover):
+#   5. Create a second app named after the app in step 1 with a `-worker`
+#      suffix (no domain, no persistent data), give it the same environment
+#      as the web app plus JOBS_WORKER=only, enable its App
+#      Token, and add it as the WORKER_APP_TOKEN repository secret. The worker
+#      step below runs only when that secret exists. Once the worker is live,
+#      set JOBS_WORKER=false on the web app.
+#
+# Tests are not run here; run the AGENTS.md "done" checks locally before
+# pushing to main.
+name: Deploy production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    env:
+      # The CapRover app name; the worker app is "${APP}-worker".
+      APP: lvtd-dev
+      # Empty unless the repository has the secret: then the worker step runs.
+      WORKER_APP_TOKEN: ${{ secrets.WORKER_APP_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Image name (ghcr requires lowercase)
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE }}:${{ github.sha }}
+          build-args: BUILD_REVISION=${{ github.sha }}
+          labels: org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Deploy to CapRover
+        uses: caprover/deploy-from-github@68ab51ebfb8da5054c20427f4e8e654a1cb2fbbf
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: ${{ env.APP }}
+          token: ${{ secrets.APP_TOKEN }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
+      # Same image, worker role (JOBS_WORKER=only in that app's environment):
+      # runs background jobs and hourly cleanups while the web app serves HTTP.
+      - name: Deploy worker to CapRover
+        if: env.WORKER_APP_TOKEN != ''
+        uses: caprover/deploy-from-github@68ab51ebfb8da5054c20427f4e8e654a1cb2fbbf
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: ${{ env.APP }}-worker
+          token: ${{ env.WORKER_APP_TOKEN }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
+      - name: Verify deployed revision
+        if: vars.PRODUCTION_URL != ''
+        env:
+          EXPECTED_REVISION: ${{ github.sha }}
+          URL: ${{ vars.PRODUCTION_URL }}
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error --max-time 10 \
+              --dump-header /tmp/health-headers --output /dev/null \
+              "${URL%/}/healthz" &&
+              tr -d '\r' < /tmp/health-headers | grep -Fxi "x-deployment-revision: ${EXPECTED_REVISION}"; then
+              echo "revision ${EXPECTED_REVISION} is live"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "deployed revision did not become live in time" >&2
+          exit 1

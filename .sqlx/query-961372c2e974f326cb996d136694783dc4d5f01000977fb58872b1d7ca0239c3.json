@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE pending_signups SET attempts = attempts + 1 WHERE token_hash = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "961372c2e974f326cb996d136694783dc4d5f01000977fb58872b1d7ca0239c3"
+}

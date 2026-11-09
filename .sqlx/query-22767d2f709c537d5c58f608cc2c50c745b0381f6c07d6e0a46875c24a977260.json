@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT u.is_admin, b.paid_at, b.customer_id FROM users u LEFT JOIN billing_accounts b ON b.user_id = u.id WHERE u.id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "is_admin",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "users",
+            "name": "is_admin"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "paid_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "billing_accounts",
+            "name": "paid_at"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "customer_id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_accounts",
+            "name": "customer_id"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "22767d2f709c537d5c58f608cc2c50c745b0381f6c07d6e0a46875c24a977260"
+}

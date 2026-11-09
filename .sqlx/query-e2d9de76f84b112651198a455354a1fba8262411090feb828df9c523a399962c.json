@@ -1,0 +1,29 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO indexnow_state (origin, key) VALUES ($1, $2)\n            ON CONFLICT (origin) DO UPDATE SET origin = EXCLUDED.origin RETURNING key",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "key",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "indexnow_state",
+            "name": "key"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "e2d9de76f84b112651198a455354a1fba8262411090feb828df9c523a399962c"
+}

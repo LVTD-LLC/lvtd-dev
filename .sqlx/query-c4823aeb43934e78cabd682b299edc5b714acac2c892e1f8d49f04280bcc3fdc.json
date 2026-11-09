@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE billing_checkouts SET session_id = NULL, created_at = now() - interval '24 hours' WHERE user_id = $1 AND active",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "c4823aeb43934e78cabd682b299edc5b714acac2c892e1f8d49f04280bcc3fdc"
+}

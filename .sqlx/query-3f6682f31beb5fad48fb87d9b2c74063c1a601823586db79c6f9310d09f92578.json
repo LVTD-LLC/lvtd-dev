@@ -1,0 +1,29 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE pending_signups SET code_hash = $2, expires_at = now() + interval '10 minutes',\n        last_sent_at = now(), created_at = now(), attempts = 0, delivered = false\n        WHERE token_hash = $1 AND last_sent_at <= now() - interval '1 minute' RETURNING email",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "email",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "pending_signups",
+            "name": "email"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Bytea",
+        "Bytea"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "3f6682f31beb5fad48fb87d9b2c74063c1a601823586db79c6f9310d09f92578"
+}

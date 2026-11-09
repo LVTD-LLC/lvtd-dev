@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT sign_count, backed_up, last_used_at FROM passkeys WHERE user_id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "sign_count",
+        "type_info": "Int8",
+        "origin": {
+          "Table": {
+            "table": "passkeys",
+            "name": "sign_count"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "backed_up",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "passkeys",
+            "name": "backed_up"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "last_used_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "passkeys",
+            "name": "last_used_at"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "a862fed7bc21cf9707f585e75284ffd0afd4f492bf05011c6dcf9e03072994c0"
+}

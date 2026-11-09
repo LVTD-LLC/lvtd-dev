@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT email, active FROM billing_checkouts WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "email",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "email"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "active",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "active"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "85d98e94ad48237d12517fc76e6e8f3fb6045931501920d9695f75d97482613f"
+}

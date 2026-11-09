@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE totp_secrets SET confirmed_at = now() WHERE user_id = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "6954953c29c340ab7b416a54905727c44e59b348ab96c347acff76b0beb3e31d"
+}

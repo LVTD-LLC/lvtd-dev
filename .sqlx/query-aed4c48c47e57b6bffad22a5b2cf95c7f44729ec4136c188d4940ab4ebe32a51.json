@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE two_factor_challenges SET expires_at = now() - interval '1 second'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "aed4c48c47e57b6bffad22a5b2cf95c7f44729ec4136c188d4940ab4ebe32a51"
+}

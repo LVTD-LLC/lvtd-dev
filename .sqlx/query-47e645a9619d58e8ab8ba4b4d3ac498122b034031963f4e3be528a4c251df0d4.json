@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO social_identities (user_id, provider, subject) VALUES ($1, 'github', 'github-subject')",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "47e645a9619d58e8ab8ba4b4d3ac498122b034031963f4e3be528a4c251df0d4"
+}

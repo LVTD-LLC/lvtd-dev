@@ -1,0 +1,12 @@
+*
+!Cargo.toml
+!Cargo.lock
+!.sqlx/
+!.sqlx/**
+!migrations/
+!migrations/**
+!crates/
+!crates/**
+!app/
+!app/**
+!Dockerfile

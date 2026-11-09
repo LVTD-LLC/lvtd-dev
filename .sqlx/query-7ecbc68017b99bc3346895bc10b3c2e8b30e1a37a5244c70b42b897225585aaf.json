@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT snapshot FROM indexnow_state WHERE origin = $1 FOR UPDATE SKIP LOCKED",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "snapshot",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "indexnow_state",
+            "name": "snapshot"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "7ecbc68017b99bc3346895bc10b3c2e8b30e1a37a5244c70b42b897225585aaf"
+}

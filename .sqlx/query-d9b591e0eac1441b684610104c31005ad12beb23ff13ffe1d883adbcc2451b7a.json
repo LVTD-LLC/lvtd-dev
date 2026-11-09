@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM pending_signups WHERE created_at <= now() - interval '1 day'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "d9b591e0eac1441b684610104c31005ad12beb23ff13ffe1d883adbcc2451b7a"
+}

@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO social_login_confirmations (session_hash) VALUES ($1) ON CONFLICT (session_hash) DO UPDATE SET expires_at = now() + interval '5 minutes'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "248b21953b770741fa2a04bebd74cad1a3c08bd0d4cfadad4f8b965fbf631e13"
+}

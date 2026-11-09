@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO billing_accounts (user_id, paid_at) VALUES ($1, now())",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "ad8254f9e9c10e2d2cfd747bda5c8f3890813de8e785068160b54480e7bf421d"
+}

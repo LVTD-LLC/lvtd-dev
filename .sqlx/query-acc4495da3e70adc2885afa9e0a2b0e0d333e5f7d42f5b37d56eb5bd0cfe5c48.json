@@ -1,0 +1,52 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT status, access_active, cancel_at_period_end FROM billing_subscriptions WHERE user_id = $1 ORDER BY (status NOT IN ('canceled', 'incomplete_expired')) DESC, updated_at DESC, id DESC LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "status",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_subscriptions",
+            "name": "status"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "access_active",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "billing_subscriptions",
+            "name": "access_active"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "cancel_at_period_end",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "billing_subscriptions",
+            "name": "cancel_at_period_end"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "acc4495da3e70adc2885afa9e0a2b0e0d333e5f7d42f5b37d56eb5bd0cfe5c48"
+}

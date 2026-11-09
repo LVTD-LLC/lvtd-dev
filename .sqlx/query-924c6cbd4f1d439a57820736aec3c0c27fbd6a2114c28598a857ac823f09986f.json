@@ -1,0 +1,76 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, session_id, active, mode, price_id FROM billing_checkouts WHERE user_id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "session_id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "session_id"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "active",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "active"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "mode",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "mode"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "price_id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_checkouts",
+            "name": "price_id"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "924c6cbd4f1d439a57820736aec3c0c27fbd6a2114c28598a857ac823f09986f"
+}

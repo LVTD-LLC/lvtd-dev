@@ -1,0 +1,73 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE jobs SET state = 'running', locked_by = $1, locked_until = now() + make_interval(secs => $2),\n               attempts = attempts + 1\n           WHERE id = (\n               SELECT id FROM jobs\n               WHERE state = 'queued' AND run_at <= now() AND kind = ANY($3)\n               ORDER BY run_at\n               LIMIT 1\n               FOR UPDATE SKIP LOCKED\n           )\n           RETURNING id, kind, payload::text AS \"payload!\", attempts, max_attempts",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid",
+        "origin": {
+          "Table": {
+            "table": "jobs",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "kind",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "jobs",
+            "name": "kind"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "payload!",
+        "type_info": "Text",
+        "origin": "Expression"
+      },
+      {
+        "ordinal": 3,
+        "name": "attempts",
+        "type_info": "Int4",
+        "origin": {
+          "Table": {
+            "table": "jobs",
+            "name": "attempts"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "max_attempts",
+        "type_info": "Int4",
+        "origin": {
+          "Table": {
+            "table": "jobs",
+            "name": "max_attempts"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Float8",
+        "TextArray"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      null,
+      false,
+      false
+    ]
+  },
+  "hash": "58e47b2585053a9e5c38b387386d9358b3dfb09ddacaff1f9d1f4e9f6512f093"
+}

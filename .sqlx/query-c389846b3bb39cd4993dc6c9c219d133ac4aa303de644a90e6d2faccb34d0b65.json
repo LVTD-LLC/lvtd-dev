@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE billing_accounts SET paid_at = COALESCE(paid_at, now()) WHERE user_id = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "c389846b3bb39cd4993dc6c9c219d133ac4aa303de644a90e6d2faccb34d0b65"
+}

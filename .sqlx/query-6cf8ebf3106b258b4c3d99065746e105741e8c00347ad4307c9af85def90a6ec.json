@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT customer_id FROM billing_accounts WHERE user_id = $1 FOR UPDATE",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "customer_id",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "billing_accounts",
+            "name": "customer_id"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "6cf8ebf3106b258b4c3d99065746e105741e8c00347ad4307c9af85def90a6ec"
+}

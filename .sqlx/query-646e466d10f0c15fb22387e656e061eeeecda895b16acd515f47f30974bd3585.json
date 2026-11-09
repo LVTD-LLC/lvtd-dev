@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM signup_limits WHERE window_start <= now() - interval '1 day'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "646e466d10f0c15fb22387e656e061eeeecda895b16acd515f47f30974bd3585"
+}

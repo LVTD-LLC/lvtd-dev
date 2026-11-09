@@ -1,0 +1,83 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT t.id, c.name AS client_name, c.client_uri, t.created_at, t.last_used_at,\n                  COALESCE(t.refresh_expires_at, t.access_expires_at) AS \"expires_at!\"\n           FROM oauth_tokens t JOIN oauth_clients c ON c.id = t.client_id\n           WHERE t.user_id = $1 AND COALESCE(t.refresh_expires_at, t.access_expires_at) > now()\n           ORDER BY t.created_at DESC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid",
+        "origin": {
+          "Table": {
+            "table": "oauth_tokens",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "client_name",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "name"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "client_uri",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "oauth_clients",
+            "name": "client_uri"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "created_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "oauth_tokens",
+            "name": "created_at"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "last_used_at",
+        "type_info": "Timestamptz",
+        "origin": {
+          "Table": {
+            "table": "oauth_tokens",
+            "name": "last_used_at"
+          }
+        }
+      },
+      {
+        "ordinal": 5,
+        "name": "expires_at!",
+        "type_info": "Timestamptz",
+        "origin": "Expression"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      false,
+      true,
+      null
+    ]
+  },
+  "hash": "a6ae524d432eb513bf4a515a91dec55b8b1dfbcda56514d6b4bd8fb150f5ea80"
+}

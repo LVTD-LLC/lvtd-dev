@@ -1,0 +1,18 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO billing_subscriptions (id, user_id, status, cancel_at_period_end, access_active) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (id) DO UPDATE SET status = EXCLUDED.status, access_active = EXCLUDED.access_active, cancel_at_period_end = EXCLUDED.cancel_at_period_end, updated_at = now() WHERE billing_subscriptions.user_id = EXCLUDED.user_id",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid",
+        "Text",
+        "Bool",
+        "Bool"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "0d4e8f53061d8b7fc5762c1cfebc6729743c33dfeb1a0eb4778029664f42f9d9"
+}

@@ -1,0 +1,78 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM social_login_flows WHERE state_hash = $1 AND browser_hash = $2 AND provider = $3 AND expires_at > now() RETURNING nonce, verifier, purpose, user_id, session_hash",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "nonce",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "social_login_flows",
+            "name": "nonce"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "verifier",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "social_login_flows",
+            "name": "verifier"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "purpose",
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "social_login_flows",
+            "name": "purpose"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "user_id",
+        "type_info": "Uuid",
+        "origin": {
+          "Table": {
+            "table": "social_login_flows",
+            "name": "user_id"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "session_hash",
+        "type_info": "Bytea",
+        "origin": {
+          "Table": {
+            "table": "social_login_flows",
+            "name": "session_hash"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Bytea",
+        "Bytea",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "31122bf73b5e0fb4de3d6d7701097c2266019eaa6a94d81a534791e68769a98b"
+}

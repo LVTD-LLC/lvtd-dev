@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT EXISTS(SELECT 1 FROM totp_secrets WHERE user_id = $1 AND confirmed_at IS NOT NULL) AS \"enabled!\"",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "enabled!",
+        "type_info": "Bool",
+        "origin": "Expression"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      null
+    ]
+  },
+  "hash": "c539f026f3221ced6838924146e8d13e01668b5fb6f6eebae27f314eda29f6fa"
+}

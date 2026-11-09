@@ -1,0 +1,9 @@
+/target
+.env
+*.log
+.DS_Store
+# Local uploads when no STORAGE_S3_* bucket is configured (STORAGE_LOCAL_DIR).
+/storage
+# Mutation reports include source diffs and test logs.
+/mutants.out/
+/mutants.out.old/

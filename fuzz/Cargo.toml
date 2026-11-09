@@ -1,0 +1,43 @@
+[package]
+name = "lvtd-dev-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+# Keep nightly/libFuzzer dependencies out of normal application builds.
+[workspace]
+members = ["."]
+resolver = "3"
+
+[dependencies]
+libfuzzer-sys = "0.4"
+app-core = { package = "core", path = "../crates/core" }
+app-auth = { package = "auth", path = "../crates/auth" }
+anyhow = "1.0"
+axum = { version = "0.8", default-features = false }
+serde_json = "1.0"
+tokio = { version = "1.53", features = ["rt"] }
+
+[[bin]]
+name = "input_validation"
+path = "fuzz_targets/input_validation.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "webauthn"
+path = "fuzz_targets/webauthn.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mcp"
+path = "fuzz_targets/mcp.rs"
+test = false
+doc = false
+bench = false

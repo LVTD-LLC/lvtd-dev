@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO billing_subscriptions (id, user_id, status, cancel_at_period_end) VALUES ('sub_settings', $1, $2, true) ON CONFLICT (id) DO UPDATE SET status = EXCLUDED.status",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "64a3d3a49512b2b2ee9b0d833e90d364f0629d0401fb17d5684729ce540706e0"
+}

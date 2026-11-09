@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE social_login_confirmations SET expires_at = now() - interval '1 second'",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "e632a12e6c3f654a9f03e1bd463921572d52140d73e80fbf37ca183805fd82cd"
+}

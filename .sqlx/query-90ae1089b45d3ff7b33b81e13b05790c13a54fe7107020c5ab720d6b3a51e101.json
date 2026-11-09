@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM oauth_tokens WHERE client_id = $1 AND (access_hash = $2 OR refresh_hash = $2)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "90ae1089b45d3ff7b33b81e13b05790c13a54fe7107020c5ab720d6b3a51e101"
+}

@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM social_login_flows WHERE user_id = $1 AND provider = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "db91f5406eb30b8b28467ca81c30ae61e28aec2358424cbc4083bd4c147e4a07"
+}
