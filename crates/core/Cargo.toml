@@ -36,7 +36,7 @@ uuid.workspace = true
 reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
 tiny-skia = { version = "0.12", default-features = false, features = ["std", "simd", "png-format"], optional = true }
 skrifa = { version = "0.48", optional = true }
-harfrust = { version = "0.14", optional = true }
+harfrust = { version = "0.15", optional = true }
 
 [dev-dependencies]
 http-body-util.workspace = true
