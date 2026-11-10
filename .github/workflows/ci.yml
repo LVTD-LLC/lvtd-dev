@@ -97,7 +97,7 @@ jobs:
       - run: cargo test --workspace --no-default-features --features blog
       - run: cargo clippy --workspace --all-targets --no-default-features --features docs -- -D warnings
       - run: cargo test --workspace --no-default-features --features docs
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
       - run: node --test app/tests/*.test.cjs
