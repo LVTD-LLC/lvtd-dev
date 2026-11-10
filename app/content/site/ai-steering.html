@@ -1,0 +1,176 @@
+
+<section>
+<a href="/">Back to LVTD</a>
+<p>AI Steering / Open source</p>
+
+<p>Choose the right files for your repository. Explore what belongs in each one, when to use it, and examples worth studying.</p>
+<div>
+<a href="#catalog">Browse the catalog</a>
+<a href="#install">Install the skill</a>
+<a href="https://github.com/LVTD-LLC/ai-steering">GitHub repository</a>
+</div>
+</section>
+<section aria-label="Steering file catalog" id="catalog">
+<aside>
+<p>11 file patterns</p>
+<nav aria-label="Steering files">
+<h2>Agent-Agnostic Files</h2>
+<ul>
+<li><a href="#agents-md">AGENTS.md</a></li>
+<li><a href="#product-md">PRODUCT.md</a></li>
+<li><a href="#analytics-md">ANALYTICS.md</a></li>
+<li><a href="#tech-md">TECH.md</a></li>
+<li><a href="#structure-md">STRUCTURE.md</a></li>
+<li><a href="#vision-md">VISION.md</a></li>
+<li><a href="#design-md">DESIGN.md</a></li>
+</ul>
+<h2>Agent-Specific Files</h2>
+<ul>
+<li><a href="#claude-md">CLAUDE.md</a></li>
+<li><a href="#gemini-md">GEMINI.md</a></li>
+<li><a href="#github-copilot-instructions-md">.github/copilot-instructions.md</a></li>
+<li><a href="#cursor-rules-mdc">.cursor/rules/*.mdc</a></li>
+</ul>
+</nav>
+<a href="https://github.com/LVTD-LLC/ai-steering/blob/main/README.md">Text version on GitHub</a>
+</aside>
+<div>
+<div id="steering-filter">
+
+<input id="steering-search"/>
+<p id="steering-count" role="status">Showing all 11 file patterns.</p>
+</div>
+<div id="steering-results">
+<section id="agent-agnostic-files">
+<h2>Agent-Agnostic Files</h2>
+<p>Start here for rules and context that should help every coding assistant work safely in the repo.</p>
+<article id="agents-md">
+<h3>AGENTS.md</h3>
+<p>The shared operating manual every coding agent should read before changing the repo.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>repo-specific behavior that applies across tools</li><li>safe defaults, guardrails, and approval boundaries</li><li>exact commands agents can run with confidence</li><li>review, branch, and merge expectations</li></ul></div>
+<div><h4>Should contain</h4><ul><li>concise project summary</li><li>preferred workflow</li><li>exact install, test, lint, build, and deploy commands</li><li>branch and PR policy</li><li>actions that need approval</li><li>rules agents should not bypass</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://agents.md/">AGENTS.md spec</a></li><li><a href="https://developers.openai.com/codex/guides/agents-md">OpenAI Codex guide</a></li><li><a href="https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/">How to write a great AGENTS.md</a></li><li><a href="https://www.augmentcode.com/blog/how-to-write-good-agents-dot-md-files">How to write good AGENTS.md files</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/n8n-io/n8n/blob/master/AGENTS.md">n8n AGENTS.md</a></li><li><a href="https://github.com/github/spec-kit/blob/main/AGENTS.md">spec-kit AGENTS.md</a></li><li><a href="https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md">llama.cpp AGENTS.md</a></li><li><a href="https://github.com/paperclipai/paperclip/blob/master/AGENTS.md">paperclip AGENTS.md</a></li><li><a href="https://github.com/firecrawl/firecrawl/blob/main/AGENTS.md">Firecrawl AGENTS.md</a></li><li><a href="https://awesome.lvtd.dev/?has_file=AGENTS.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="product-md">
+<h3>PRODUCT.md</h3>
+<p>Product context that keeps implementation tradeoffs tied to users and outcomes.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>target users and use cases</li><li>the problem the product solves</li><li>major workflows and user journeys</li><li>business objectives and success criteria</li></ul></div>
+<div><h4>Should contain</h4><ul><li>why the project exists</li><li>who it serves</li><li>what good looks like</li><li>what is in scope and out of scope</li><li>the outcomes that matter most</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://kiro.dev/docs/steering/">Kiro steering docs</a></li><li><a href="https://github.com/buildermethods/agent-os/blob/main/commands/agent-os/plan-product.md">Agent OS product planning</a></li><li><a href="https://github.com/paralleldrive/aidd">aidd</a></li><li><a href="https://matsen.fhcrc.org/general/2026/02/10/spec-kit-walkthrough.html">Spec kit walkthrough</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/rybbit-io/rybbit/blob/master/PRODUCT.md">Rybbit PRODUCT.md</a></li><li><a href="https://github.com/twentyhq/twenty/blob/main/PRODUCT.md">Twenty PRODUCT.md</a></li><li><a href="https://github.com/paperclipai/paperclip/blob/master/doc/PRODUCT.md">paperclip PRODUCT.md</a></li><li><a href="https://github.com/mspworld/agent-coordinator/blob/main/PRODUCT.md">agent-coordinator PRODUCT.md</a></li><li><a href="https://github.com/AI-Shipping-Labs/website/blob/main/_docs/product.md">AI-Shipping-Labs website</a></li><li><a href="https://awesome.lvtd.dev/?has_file=PRODUCT.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="analytics-md">
+<h3>ANALYTICS.md</h3>
+<p>A checked-in measurement contract for product events, metrics, attribution, and privacy boundaries.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>canonical product and marketing metrics</li><li>event names, properties, identity, and versioning rules</li><li>funnel stages, attribution, and source-of-truth decisions</li><li>consent, privacy, retention, and excluded data</li><li>analytics validation and governance</li></ul></div>
+<div><h4>Should contain</h4><ul><li>the outcomes and funnels the product measures</li><li>canonical event and property contracts</li><li>identity, attribution, and metric-source rules</li><li>data that must never be collected</li><li>consent and privacy requirements</li><li>how to validate changes and evolve the schema safely</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://posthog.com/docs/product-analytics">PostHog product analytics docs</a></li><li><a href="https://matomo.org/faq/getting-started/download-the-matomo-measurement-plan/">Matomo analytics measurement plan</a></li><li><a href="https://matomo.org/faq/reports/implement-event-tracking-with-matomo/">Matomo event tracking guide</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/LVTD-LLC/rowset/blob/main/ANALYTICS.md">Rowset ANALYTICS.md</a></li><li><a href="https://github.com/hook0/hook0/blob/main/ANALYTICS.md">Hook0 ANALYTICS.md</a></li><li><a href="https://awesome.lvtd.dev/?has_file=ANALYTICS.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="tech-md">
+<h3>TECH.md</h3>
+<p>The technical source of truth for stack, commands, and implementation constraints.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>framework and library choices</li><li>runtime and package manager versions</li><li>build, check, test, and deploy commands</li><li>deployment targets, integrations, and APIs</li></ul></div>
+<div><h4>Should contain</h4><ul><li>the canonical stack</li><li>supported commands</li><li>preferred libraries and patterns</li><li>external services and APIs</li><li>the constraints agents must respect</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://kiro.dev/docs/steering/">Kiro steering docs</a></li><li><a href="https://github.com/aws-samples/sample-kiro-cli-multiagent-development">Sample Kiro CLI multiagent development</a></li><li><a href="https://github.com/modu-ai/moai-adk">moai-adk</a></li><li><a href="https://kiro.dev/blog/introducing-kiro-cli/">Introducing Kiro CLI</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/aws-samples/sample-kiro-cli-multiagent-development/blob/main/steering/sdk-verification.md">sample-kiro-cli sdk verification steering</a></li><li><a href="https://github.com/modu-ai/moai-adk">moai-adk</a></li><li><a href="https://github.com/LaProgrammerie/ai-engineering-template">ai-engineering-template</a></li><li><a href="https://awesome.lvtd.dev/?has_file=TECH.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="structure-md">
+<h3>STRUCTURE.md</h3>
+<p>A repo map that helps agents put code, docs, and tests in the right place.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>top-level directory layout</li><li>naming conventions</li><li>import patterns</li><li>module boundaries and ownership lines</li></ul></div>
+<div><h4>Should contain</h4><ul><li>a directory map</li><li>ownership boundaries</li><li>import rules</li><li>placement rules for new files</li><li>special-case folders that matter for the agent</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://kiro.dev/docs/steering/">Kiro steering docs</a></li><li><a href="https://kiro.dev/blog/introducing-powers/">Introducing Kiro powers</a></li><li><a href="https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md">Better Agents STRUCTURE.md</a></li><li><a href="https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md">Project structure guide</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/langwatch/better-agents/blob/main/docs/STRUCTURE.md">better-agents STRUCTURE.md</a></li><li><a href="https://github.com/gamekit-agent/gamekit-cli/blob/main/docs/project-structure.md">gamekit-cli project structure</a></li><li><a href="https://github.com/bootc-dev/infra/blob/main/docs/repository-structure.md">repository structure</a></li><li><a href="https://awesome.lvtd.dev/?has_file=STRUCTURE.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="vision-md">
+<h3>VISION.md</h3>
+<p>Long-term direction, non-goals, and taste principles that should outlast individual specs.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>long-term product direction</li><li>non-goals</li><li>design and product taste</li><li>the future state the project is trying to create</li></ul></div>
+<div><h4>Should contain</h4><ul><li>vision and durable constraints</li><li>what the project should become</li><li>what should not drift</li><li>success criteria at the level of outcomes, not implementation</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://github.com/paralleldrive/aidd">aidd</a></li><li><a href="https://kiro.dev/blog/introducing-kiro/">Introducing Kiro</a></li><li><a href="https://kiro.dev/blog/kiro-and-the-future-of-software-development/">Kiro and the future of software development</a></li><li><a href="https://github.com/openclaw/clawhub/blob/main/VISION.md">clawhub VISION.md</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/openclaw/openclaw/blob/main/VISION.md">OpenClaw VISION.md</a></li><li><a href="https://github.com/jesseduffield/lazygit/blob/master/VISION.md">lazygit VISION.md</a></li><li><a href="https://github.com/openclaw/clawhub/blob/main/VISION.md">OpenClaw ClawHub VISION.md</a></li><li><a href="https://github.com/block/sprout/blob/main/VISION.md">sprout VISION.md</a></li><li><a href="https://github.com/gsd-build/gsd-2/blob/main/VISION.md">gsd-2 VISION.md</a></li><li><a href="https://awesome.lvtd.dev/?has_file=VISION.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="design-md">
+<h3>DESIGN.md</h3>
+<p>A design-system source of truth for AI-generated UI changes.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>design tokens and theme choices</li><li>typography and spacing</li><li>layout rules</li><li>component patterns</li><li>accessibility expectations</li></ul></div>
+<div><h4>Should contain</h4><ul><li>the visual language</li><li>spacing and type rules</li><li>layout constraints</li><li>component style preferences</li><li>UI patterns to avoid</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/">Google Stitch announcement</a></li><li><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/">Stitch AI UI design</a></li><li><a href="https://github.com/google-labs-code/design.md">design.md</a></li><li><a href="https://github.com/VoltAgent/awesome-design-md">Awesome Design.md</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/twentyhq/twenty/blob/main/DESIGN.md">Twenty DESIGN.md</a></li><li><a href="https://github.com/garrytan/gstack/blob/main/DESIGN.md">gstack DESIGN.md</a></li><li><a href="https://github.com/google-labs-code/design.md">google-labs-code/design.md</a></li><li><a href="https://github.com/VoltAgent/awesome-design-md">awesome-design-md</a></li><li><a href="https://github.com/VoltAgent/awesome-claude-design">awesome-claude-design</a></li><li><a href="https://awesome.lvtd.dev/?has_file=DESIGN.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+</section>
+<section id="agent-specific-files">
+<h2>Agent-Specific Files</h2>
+<p>Add these when a tool needs its own syntax, memory model, or narrower workflow rules.</p>
+<article id="claude-md">
+<h3>CLAUDE.md</h3>
+<p>The Claude Code memory file for repo-specific instructions and workflows.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>Claude-specific guidance</li><li>repo conventions that should persist across Claude sessions</li><li>build/test/verify expectations for Claude</li><li>workflow notes that are useful in Claude Code</li></ul></div>
+<div><h4>Should contain</h4><ul><li>project-specific instructions</li><li>code style and review rules</li><li>build and test commands</li><li>escalation boundaries</li><li>paths or workflows Claude should handle carefully</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code overview</a></li><li><a href="https://docs.anthropic.com/en/docs/claude-code/memory">Claude Code memory</a></li><li><a href="https://docs.anthropic.com/en/docs/claude-code/github-actions">Claude Code GitHub Actions</a></li><li><a href="https://github.com/anthropics/claude-code/issues/10286">Anthropic issue #10286</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/truecourse-ai/truecourse/blob/main/CLAUDE.md">TrueCourse CLAUDE.md</a></li><li><a href="https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md">Andrej Karpathy skills CLAUDE.md</a></li><li><a href="https://github.com/anthropics/claude-agent-sdk-python/blob/main/CLAUDE.md">Claude Agent SDK Python CLAUDE.md</a></li><li><a href="https://github.com/tylerbutler/tools-monorepo/blob/main/CLAUDE.md">tools-monorepo CLAUDE.md</a></li><li><a href="https://awesome.lvtd.dev/?has_file=CLAUDE.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="gemini-md">
+<h3>GEMINI.md</h3>
+<p>The Gemini CLI context file for repo instructions, commands, and response preferences.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>Gemini-specific instructions</li><li>repo conventions that should persist across Gemini sessions</li><li>project context and response preferences</li><li>custom commands or tool usage hints</li></ul></div>
+<div><h4>Should contain</h4><ul><li>project-specific context</li><li>coding conventions</li><li>build/test/verify notes</li><li>files or folders Gemini should prioritize</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md">Gemini CLI docs</a></li><li><a href="https://discuss.ai.google.dev/t/announcing-gemini-cli-a-command-line-tool-for-the-google-gemini-api/96003">Gemini CLI announcement</a></li><li><a href="https://github.com/google-gemini/gemini-cli">Gemini CLI repo</a></li><li><a href="https://github.com/google-gemini/gemini-cli/issues/1806">Gemini CLI issue #1806</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md">gemini-cli GEMINI.md</a></li><li><a href="https://github.com/alirezarezvani/claude-skills/blob/main/GEMINI.md">claude-skills GEMINI.md</a></li><li><a href="https://awesome.lvtd.dev/?has_file=GEMINI.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="github-copilot-instructions-md">
+<h3>.github/copilot-instructions.md</h3>
+<p>Repository-wide instructions GitHub Copilot should apply when suggesting changes.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>Copilot instructions that apply across the repo</li><li>build/test/validation guidance</li><li>repo-specific coding standards</li><li>review and safety expectations</li></ul></div>
+<div><h4>Should contain</h4><ul><li>how to build and test the repo</li><li>conventions and patterns to follow</li><li>constraints that should always be respected</li><li>any special validation steps</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot">GitHub Copilot custom instructions</a></li><li><a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions">Copilot CLI custom instructions</a></li><li><a href="https://docs.github.com/copilot/reference/custom-instructions-support">Copilot reference</a></li><li><a href="https://github.com/github/awesome-copilot">Awesome Copilot</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/microsoft/vscode/blob/main/.github/copilot-instructions.md">VS Code Copilot instructions</a></li><li><a href="https://github.com/github/copilot-sdk/blob/main/.github/copilot-instructions.md">GitHub Copilot SDK instructions</a></li><li><a href="https://github.com/github/awesome-copilot">github/awesome-copilot</a></li><li><a href="https://github.com/dotnet/runtime/blob/main/.github/copilot-instructions.md">dotnet/runtime copilot instructions</a></li><li><a href="https://github.com/obsidian-tasks-group/obsidian-tasks/issues/3816">obsidian-tasks issue #3816</a></li><li><a href="https://awesome.lvtd.dev/?has_file=.github%2Fcopilot-instructions.md">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+<article id="cursor-rules-mdc">
+<h3>.cursor/rules/*.mdc</h3>
+<p>Path-scoped Cursor rules for workflows that need narrower guidance than a repo-wide file.</p>
+<div>
+<div><h4>Use it for</h4><ul><li>file-specific or workflow-specific rules</li><li>path-scoped instructions</li><li>rule sets for certain parts of the repo</li><li>agent behavior that should not apply globally</li></ul></div>
+<div><h4>Should contain</h4><ul><li>path or task scope</li><li>the conventions to follow in that scope</li><li>examples of good output</li><li>what should auto-apply vs stay manual</li></ul></div>
+<div><h4>References</h4><ul><li><a href="https://cursor.com/docs/rules">Cursor rules docs</a></li><li><a href="https://forum.cursor.com/t/a-deep-dive-into-cursor-rules-0-45/60721">Deep dive into Cursor rules</a></li><li><a href="https://forum.cursor.com/t/optimal-structure-for-mdc-rules-files/52260">Optimal structure for .mdc rules</a></li><li><a href="https://github.com/PatrickJS/awesome-cursorrules">Awesome Cursor Rules</a></li></ul></div>
+<div><h4>Examples</h4><ul><li><a href="https://github.com/PatrickJS/awesome-cursorrules">awesome-cursorrules</a></li><li><a href="https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/java-springboot-jpa-cursorrules-prompt-file.mdc">java springboot jpa rule file</a></li><li><a href="https://github.com/RobertAgterhuis/myAgentic-IT-Project-team/blob/main/.github/docs/README.md">myAgentic-IT-Project-team README</a></li><li><a href="https://awesome.lvtd.dev/?q=.cursor%2Frules%2F*.mdc">More examples on Awesome</a></li></ul></div>
+</div>
+</article>
+</section>
+</div>
+<p id="steering-empty">No matching files. Try commands, product, structure, or an assistant name.</p>
+</div>
+</section>
+<section id="install">
+<p>Reusable workflow</p>
+<h2>Install the catalog as an agent skill.</h2>
+<p>The skill helps an agent choose, write, and audit steering files without copying this catalog into every repository.</p>
+<h3>Skills CLI</h3>
+<pre><code>npx skills add LVTD-LLC/ai-steering</code></pre>
+<h3>GitHub CLI</h3>
+<pre><code>gh skill install LVTD-LLC/ai-steering ai-steering-files --agent codex --scope user</code></pre>
+<a href="https://github.com/LVTD-LLC/ai-steering/blob/main/skills/ai-steering-files/SKILL.md">Read the skill source</a>
+</section>
+

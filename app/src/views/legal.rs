@@ -5,9 +5,9 @@
 use maud::{Markup, html};
 
 /// The legal entity that operates the app. Defaults to the product name.
-pub const COMPANY: &str = super::SITE_NAME;
+pub const COMPANY: &str = "LVTD, LLC";
 /// Where people send legal, privacy and refund requests.
-pub const CONTACT_EMAIL: &str = "you@example.com";
+pub const CONTACT_EMAIL: &str = "rasul@lvtd.dev";
 /// Whose law governs the terms, e.g. "the State of Delaware, USA".
 pub const GOVERNING_LAW: &str = "[your state or country]";
 /// Change whenever the substance of either page changes.

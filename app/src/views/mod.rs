@@ -25,10 +25,10 @@ use app_auth::User;
 use maud::{DOCTYPE, Markup, PreEscaped, html};
 
 pub const SITE_NAME: &str = "LVTD";
-pub const HOME_TITLE: &str = "Ship your SaaS in Rust";
+pub const HOME_TITLE: &str = "From idea to credible software";
 /// Search and link-preview summary for pages that do not pass their own description.
 pub const SITE_DESCRIPTION: &str =
-    "Accounts, sessions and a dashboard, already wired. A fast, server-rendered SaaS built in Rust.";
+    "LVTD scopes, builds, and launches focused MVPs. Fast, finished, and ready for users.";
 /// Alt text for `assets/og-image.png`; update both together (see app/og-image/).
 const OG_IMAGE_ALT: &str = "Ship your SaaS in Rust.";
 
@@ -131,6 +131,8 @@ pub fn layout_with_metadata(
                                 a class="muted" href="/blog" { "Blog" }
                                 a class="muted" href="/blog/rss.xml" { "RSS" }
                             }
+                            a class="muted" href="/ai-steering" { "AI Steering" }
+                            a class="muted" href="/services/hosted-openclaw/" { "OpenClaw" }
                             a class="muted" href="/about" { "About" }
                             a class="muted" href="/contact" { "Contact" }
                             a class="muted" href="/terms" { "Terms" }
@@ -207,6 +209,8 @@ fn navbar(state: &AppState, page: &Page<'_>) -> Markup {
                 }
                 div class="header-actions" {
                     nav class="resource-nav" aria-label="Resources" {
+                        a class="nav-link" href="/projects/" { "Projects" }
+                        a class="nav-link" href="/research/" { "Research" }
                         @if cfg!(feature = "docs") { a class="nav-link" href="/docs" { "Docs" } }
                         @if cfg!(feature = "blog") { a class="nav-link" href="/blog" { "Blog" } }
                     }

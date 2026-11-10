@@ -125,7 +125,7 @@ async fn homepage_shows_one_idea_per_screen(pool: PgPool) {
     for absent in ["class=\"features\"", "class=\"eyebrow\"", "Axum", "Postgres"] {
         assert!(!home.contains(absent), "{absent}");
     }
-    let cta = if cfg!(feature = "auth") { r#"href="/sign-up""# } else { r#"href="mailto:"# };
+    let cta = r#"href="mailto:rasul@lvtd.dev""#;
     assert_eq!(home.matches(&format!(r#"class="btn btn-primary btn-lg" {cta}"#)).count(), 2);
 }
 
@@ -181,9 +181,9 @@ async fn legal_pages_render_and_list_only_enabled_services(pool: PgPool) {
         assert!(body.contains(&format!("mailto:{}", app::views::legal::CONTACT_EMAIL)), "{path}");
         assert!(home.contains(&format!(r#"href="{path}""#)), "{path}");
     }
-    let (_, _, terms) = send(&app, get("/terms", None)).await;
+    let terms = app::views::legal::terms().into_string();
     assert_eq!(terms.contains("billed in advance through Stripe"), cfg!(feature = "stripe"));
-    let (_, _, privacy) = send(&app, get("/privacy", None)).await;
+    let privacy = app::views::legal::privacy().into_string();
     assert_eq!(privacy.contains("<strong>Mailgun</strong>"), cfg!(feature = "auth"));
     assert_eq!(privacy.contains("<strong>Google</strong>"), cfg!(feature = "google"));
     assert_eq!(privacy.contains("<strong>GitHub</strong>"), cfg!(feature = "github"));
@@ -268,8 +268,8 @@ async fn without_auth_there_are_no_account_routes_or_links(pool: PgPool) {
     for link in ["href=\"/sign-up\"", "href=\"/sign-in\"", "href=\"/dashboard\""] {
         assert!(!body.contains(link), "{link}");
     }
-    assert!(body.contains("Get in touch"));
-    let (_, _, privacy) = send(&app, get("/privacy", None)).await;
+    assert!(body.contains("Start your MVP"));
+    let privacy = app::views::legal::privacy().into_string();
     assert!(!privacy.contains("Mailgun") && !privacy.contains("session cookie"), "{privacy}");
 }
 
@@ -521,7 +521,7 @@ async fn blog_renders_articles_metadata_and_rss(pool: PgPool) {
 #[sqlx::test(migrations = "../migrations")]
 async fn disabled_blog_has_no_routes_navigation_or_sitemap_entries(pool: PgPool) {
     let app = app(pool);
-    for path in ["/blog", "/blog/welcome", "/blog/rss.xml"] {
+    for path in ["/blog", "/blog/what-lvtd-builds", "/blog/rss.xml"] {
         let (status, _, _) = send(&app, get(path, None)).await;
         assert_eq!(status, StatusCode::NOT_FOUND, "{path}");
     }
@@ -1130,7 +1130,7 @@ async fn account_navigation_and_appearance_match_enabled_features(pool: PgPool) 
     assert!(header.contains("href=\"/dashboard\" aria-current=\"page\""));
     assert!(header.contains("Account menu") && header.contains("owner@example.com"));
     assert!(header.contains("href=\"/settings\"") && header.contains("action=\"/sign-out\""));
-    assert!(!header.contains("theme-toggle") && !header.contains("Projects"));
+    assert!(!header.contains("theme-toggle") && header.contains("Projects") && header.contains("Research"));
     assert_eq!(header.contains("href=\"/docs\""), cfg!(feature = "docs"));
     assert_eq!(header.contains("href=\"/blog\""), cfg!(feature = "blog"));
     let (_, _, settings) = send(&app, get("/settings", Some(&cookie))).await;
@@ -1217,6 +1217,7 @@ async fn indexnow_matches_only_public_sitemap_pages(pool: PgPool) {
                 || path.starts_with("/blog/")
                 || app::views::company::PATHS.contains(&path.as_str())
                 || app::views::legal::PATHS.contains(&path.as_str())
+                || app::studio::PAGES.iter().any(|page| page.path == path)
         );
         assert_eq!(send(&router, get(path, None)).await.0, StatusCode::OK);
     }
@@ -2566,7 +2567,7 @@ async fn marketing_pages_negotiate_markdown(pool: PgPool) {
     }
     let (_, _, body) =
         send(&router, Request::get("/").header(header::ACCEPT, "text/markdown").body(Body::empty()).unwrap()).await;
-    assert!(body.contains("Say what it does."));
+    assert!(body.contains("From idea"));
     for path in ["/healthz", "/sitemap.xml"] {
         let (status, headers, _) =
             send(&router, Request::get(path).header(header::ACCEPT, "text/markdown").body(Body::empty()).unwrap())
@@ -2853,4 +2854,36 @@ async fn rejected_passkey_assertions_leave_sessions_and_credential_state_unchang
             .unwrap(),
         Some(2)
     );
+}
+
+#[sqlx::test(migrations = "../migrations")]
+async fn migrated_studio_pages_preserve_content_and_routes(pool: PgPool) {
+    let router = app(pool);
+    for page in app::studio::PAGES {
+        for accept in ["text/html", "text/markdown"] {
+            let (status, headers, body) =
+                send(&router, Request::get(page.path).header(header::ACCEPT, accept).body(Body::empty()).unwrap())
+                    .await;
+            assert_eq!(status, StatusCode::OK, "{}", page.path);
+            assert_eq!(headers[header::VARY], "Accept");
+            assert!(!body.trim().is_empty());
+            if accept == "text/html" {
+                assert_eq!(body.matches("<h1").count(), 1, "{}", page.path);
+                assert!(!body.contains("/static/"), "{}", page.path);
+                assert!(!body.contains("class=\"bench-"), "{}", page.path);
+            }
+        }
+    }
+    let (status, headers, _) = send(&router, get("/tos/", None)).await;
+    assert_eq!(status, StatusCode::PERMANENT_REDIRECT);
+    assert_eq!(headers[header::LOCATION], "/terms");
+    let (_, _, projects) = send(&router, get("/projects/", None)).await;
+    assert!(projects.contains("Rowset"));
+    let (_, _, research) = send(&router, get("/research/", None)).await;
+    assert!(research.contains("Jev"));
+    let (status, headers, data) = send(&router, get("/jev-benchmark/data.json", None)).await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(headers[header::CONTENT_TYPE], "application/json; charset=utf-8");
+    let json: serde_json::Value = serde_json::from_str(&data).unwrap();
+    assert!(json.get("dataset_sha256").is_some());
 }

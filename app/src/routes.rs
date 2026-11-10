@@ -13,7 +13,6 @@ use axum::extract::State;
 use axum::extract::{Form, Query};
 use axum::http::{HeaderMap, StatusCode, header};
 use axum::middleware;
-#[cfg(any(feature = "auth", feature = "docs"))]
 use axum::response::Redirect;
 use axum::response::{Html, IntoResponse, Response};
 use axum::routing::get;
@@ -54,14 +53,36 @@ pub fn router(state: SharedState) -> Router {
             }),
         );
     }
+    for page in crate::studio::PAGES {
+        public = public.route(
+            page.path,
+            public_page(&state, move |state, user| {
+                views::layout_with_metadata(
+                    state,
+                    Page { title: page.title, path: page.path, user, body: crate::studio::body(page) },
+                    Some(page.description),
+                    None,
+                )
+            }),
+        );
+    }
     let router = public
         .route("/", public_page(&state, home))
         .route("/sitemap.xml", get(sitemap))
         .route("/robots.txt", get(robots))
         .route("/about", public_page(&state, about))
         .route("/contact", public_page(&state, contact))
-        .route("/terms", public_page(&state, terms))
-        .route("/privacy", public_page(&state, privacy))
+        .route("/tos/", get(|| async { Redirect::permanent("/terms") }))
+        .route("/tos", get(|| async { Redirect::permanent("/terms") }))
+        .route("/projects", get(|| async { Redirect::permanent("/projects/") }))
+        .route("/research", get(|| async { Redirect::permanent("/research/") }))
+        .route("/privacy/", get(|| async { Redirect::permanent("/privacy") }))
+        .route("/ai-steering/", get(|| async { Redirect::permanent("/ai-steering") }))
+        .route("/jev-benchmark/", get(|| async { Redirect::permanent("/jev-benchmark") }))
+        .route("/jev-benchamrk", get(|| async { Redirect::permanent("/jev-benchmark") }))
+        .route("/jev-benchamrk/", get(|| async { Redirect::permanent("/jev-benchmark") }))
+        .route("/jev-benchmark/data.json", get(benchmark_data))
+        .route("/jev-benchmark/methodology.md", get(benchmark_methodology))
         .route("/healthz", get(healthz))
         .route("/assets/{*path}", get(assets::serve))
         .fallback(not_found);
@@ -126,6 +147,13 @@ pub fn router(state: SharedState) -> Router {
     let router = router.route("/stripe/webhook", post(stripe_webhook));
     #[cfg(feature = "blog")]
     let router = router
+        .route("/blog/", get(|| async { Redirect::permanent("/blog") }))
+        .route(
+            "/blog/{slug}/",
+            get(|axum::extract::Path(slug): axum::extract::Path<String>| async move {
+                Redirect::permanent(&format!("/blog/{slug}"))
+            }),
+        )
         .route("/blog", public_page(&state, blog_index))
         .route("/blog/rss.xml", get(blog_feed))
         .route("/blog/{slug}", get(blog_article));
@@ -196,16 +224,6 @@ fn about(state: &SharedState, user: Option<&User>) -> Markup {
 
 fn contact(state: &SharedState, user: Option<&User>) -> Markup {
     let page = Page { title: "Contact", path: "/contact", user, body: views::company::contact() };
-    views::layout(state, page)
-}
-
-fn terms(state: &SharedState, user: Option<&User>) -> Markup {
-    let page = Page { title: "Terms of Service", path: "/terms", user, body: views::legal::terms() };
-    views::layout(state, page)
-}
-
-fn privacy(state: &SharedState, user: Option<&User>) -> Markup {
-    let page = Page { title: "Privacy Policy", path: "/privacy", user, body: views::legal::privacy() };
     views::layout(state, page)
 }
 
@@ -726,4 +744,11 @@ async fn stripe_webhook(
     let signature = headers.get("stripe-signature").and_then(|v| v.to_str().ok()).unwrap_or_default();
     crate::billing::webhook(&state.pool, stripe, signature, &body).await?;
     Ok(StatusCode::OK)
+}
+
+async fn benchmark_data() -> impl IntoResponse {
+    ([(header::CONTENT_TYPE, "application/json; charset=utf-8")], include_str!("../content/site/data.json"))
+}
+async fn benchmark_methodology() -> impl IntoResponse {
+    ([(header::CONTENT_TYPE, "text/markdown; charset=utf-8")], include_str!("../content/site/methodology.md"))
 }

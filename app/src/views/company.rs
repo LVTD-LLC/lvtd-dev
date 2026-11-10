@@ -8,9 +8,9 @@ use super::legal::{COMPANY, CONTACT_EMAIL};
 use maud::{Markup, html};
 
 /// The person or team behind the product, named on the About page and in structured data.
-pub const FOUNDER: &str = "[your name]";
+pub const FOUNDER: &str = "Rasul Kireev";
 /// Where the business is based, e.g. "Austin, Texas, USA".
-pub const LOCATION: &str = "[city, country]";
+pub const LOCATION: &str = "the United States";
 /// Public company pages, listed in the sitemap and IndexNow.
 pub const PAGES: &[(&str, &str, &str)] = &[
     (
@@ -39,16 +39,16 @@ pub fn about() -> Markup {
                 h2 { "Who we are" }
                 p {
                     (SITE_NAME) " is built and run by " (FOUNDER) " at " (COMPANY) ", based in " (LOCATION) ". "
-                    "[Two or three sentences about your background and why you are the right person to solve this problem.]"
+                    "Product engineering, automation, technical debugging, and consulting, from scope to deployment."
                 }
                 h2 { "Why it exists" }
                 p {
-                    "[The problem you kept running into, what people did about it before, and what " (SITE_NAME)
-                    " does differently. Concrete details and real numbers are more convincing than adjectives.]"
+                    "Founders need useful software. " (SITE_NAME)
+                    " brings product, code, and operations together."
                 }
                 h2 { "Who it is for" }
                 p {
-                    "[The people or businesses " (SITE_NAME) " serves best, and the situations where it is not a good fit.]"
+                    "Founders and teams. " (SITE_NAME) " builds MVPs, internal tools, sites, and managed services."
                 }
                 h2 { "How we work" }
                 ul {
@@ -76,7 +76,7 @@ pub fn contact() -> Markup {
                 p {
                     (SITE_NAME) " is run by " (COMPANY) " in " (LOCATION) ". The best way to reach us is email: "
                     (email_link()) ". A real person reads every message, and we aim to reply within "
-                    "[two business days]."
+                    "two business days."
                 }
                 h2 { "What to email us about" }
                 ul {

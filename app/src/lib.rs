@@ -53,6 +53,7 @@ pub mod settings;
 #[cfg(feature = "social-login")]
 pub mod social_login;
 mod structured_data;
+pub mod studio;
 #[cfg(feature = "auth")]
 pub mod two_factor;
 #[cfg(feature = "qdrant")]
@@ -235,9 +236,10 @@ pub fn build_configured(
             urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" {
                 (docs_urls)
                 url { loc { (cfg.site_url.trim_end_matches('/')) "/" } }
-                @for path in views::company::PATHS.iter().chain(&views::legal::PATHS) {
+                @for path in &views::company::PATHS {
                     url { loc { (cfg.site_url.trim_end_matches('/')) (path) } }
                 }
+                @for page in studio::PAGES { url { loc { (cfg.site_url.trim_end_matches('/')) (page.path) } } }
                 (blog_urls)
             }
         }
@@ -317,6 +319,7 @@ pub fn indexnow_paths(state: &SharedState) -> Vec<String> {
         paths.push("/docs".into());
         paths.extend(state.docs.pages.iter().map(|doc| doc.path.clone()));
     }
+    paths.extend(studio::PAGES.iter().map(|page| page.path.to_string()));
     let _ = state; // Both optional content modules can be disabled.
     paths.sort();
     paths.dedup();

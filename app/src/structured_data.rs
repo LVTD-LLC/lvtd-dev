@@ -46,6 +46,9 @@ pub fn build(state: &AppState) -> HashMap<String, Markup> {
     for &(path, title, description) in views::legal::PAGES {
         add(path, "WebPage", title, description, json!({}));
     }
+    for page in crate::studio::PAGES {
+        add(page.path, "WebPage", page.title, page.description, json!({}));
+    }
     let organization = json!({"@type": "Organization", "name": views::legal::COMPANY,
         "email": views::legal::CONTACT_EMAIL, "founder": {"@type": "Person", "name": views::company::FOUNDER}});
     for &(path, title, description) in views::company::PAGES {

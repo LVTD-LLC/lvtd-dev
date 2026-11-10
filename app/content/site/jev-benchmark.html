@@ -1,0 +1,1319 @@
+<p>Public results snapshot imported on 10 November 2026. Benchmark jobs continue on the current LVTD site.</p>
+<div>
+<nav aria-label="Breadcrumb"><a href="/">LVTD</a><span>/</span><span>Experiments</span></nav>
+<header>
+<p>Compare model quality, cost, and the answers behind the scores.</p>
+<p>Answers from OpenRouter, compared by <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe's Jev</a>. A small, fully inspectable preference experiment. Not a claim of general intelligence or verified accuracy.</p>
+<p><a href="/blog/jev-ai-model-benchmark/">Which model should you use? See the winners by task and cost.</a></p>
+</header>
+<nav aria-label="Benchmark resources"><a href="#overall-title">Rankings</a><a href="#value-chart-title">Quality vs. cost</a><a href="#questions-title">Questions</a><a href="/jev-benchmark/data.json">Download data (JSON)</a><a href="/jev-benchmark/methodology.md">For AI agents (Markdown)</a></nav>
+<dl>
+<div><dt>Models</dt><dd>29</dd></div>
+<div><dt>Questions</dt><dd>6</dd></div>
+<div><dt>Answers collected</dt><dd>174<span> / 174</span></dd></div>
+<div><dt>Pairs judged</dt><dd>2436<span> / 2436</span></dd></div>
+</dl>
+<section>
+<div><div><h2 id="overall-title">Overall ranking</h2></div><a href="#methodology">How scoring works ↓</a></div>
+<p>Weighted mean of per-question Elo. A model receives an overall score only after completing every matchup across all active questions.</p>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Overall rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Weighted Elo</th><th>Mean answer cost</th><th>Value / 100</th></tr></thead>
+<tbody><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1699.3</td>
+<td><span title="Exact reported cost: $0.002859698333333333333333333333 USD">$0.002860</span></td>
+<td>76.5</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1682.8</td>
+<td><span title="Exact reported cost: $0.2262933333333333333333333333 USD">$0.226293</span></td>
+<td>53.2</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1681.2</td>
+<td><span title="Exact reported cost: $0.010550345 USD">$0.010550</span></td>
+<td>66.4</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1663.9</td>
+<td><span title="Exact reported cost: $0.07674733333333333333333333333 USD">$0.076747</span></td>
+<td>53.8</td>
+</tr><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1647.8</td>
+<td><span title="Exact reported cost: $0.1651120 USD">$0.165112</span></td>
+<td>50.8</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1608.0</td>
+<td><span title="Exact reported cost: $0.004392485 USD">$0.004392</span></td>
+<td>66.4</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1590.5</td>
+<td><span title="Exact reported cost: $0.096045 USD">$0.096045</span></td>
+<td>46.7</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1587.6</td>
+<td><span title="Exact reported cost: $0.001163283333333333333333333333 USD">$0.001163</span></td>
+<td>70.5</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1581.5</td>
+<td><span title="Exact reported cost: $0.02792524333333333333333333333 USD">$0.027925</span></td>
+<td>51.0</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1562.5</td>
+<td><span title="Exact reported cost: $0.08226114853333333333333333333 USD">$0.082261</span></td>
+<td>44.5</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1561.4</td>
+<td><span title="Exact reported cost: $0.006077301666666666666666666667 USD">$0.006077</span></td>
+<td>59.8</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1549.6</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>70.0</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1547.4</td>
+<td><span title="Exact reported cost: $0.0127039 USD">$0.012704</span></td>
+<td>53.0</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1534.8</td>
+<td><span title="Exact reported cost: $0.1461226666666666666666666667 USD">$0.146123</span></td>
+<td>40.4</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1513.8</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>66.4</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1481.1</td>
+<td><span title="Exact reported cost: $0.0006473833333333333333333333333 USD">$0.000647</span></td>
+<td>61.3</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1477.7</td>
+<td><span title="Exact reported cost: $0.03655413333333333333333333333 USD">$0.036554</span></td>
+<td>39.2</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1472.0</td>
+<td><span title="Exact reported cost: $0.005701395333333333333333333333 USD">$0.005701</span></td>
+<td>51.3</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1461.1</td>
+<td><span title="Exact reported cost: $0.01241700 USD">$0.012417</span></td>
+<td>44.5</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1430.1</td>
+<td><span title="Exact reported cost: $0.005675268373333333333333333333 USD">$0.005675</span></td>
+<td>47.2</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1423.6</td>
+<td><span title="Exact reported cost: $0.00122345 USD">$0.001223</span></td>
+<td>54.2</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1401.9</td>
+<td><span title="Exact reported cost: $0.01687066666666666666666666667 USD">$0.016871</span></td>
+<td>36.5</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1397.7</td>
+<td><span title="Exact reported cost: $0.00124800 USD">$0.001248</span></td>
+<td>51.7</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1375.5</td>
+<td><span title="Exact reported cost: $0.001224756666666666666666666667 USD">$0.001225</span></td>
+<td>49.7</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1369.9</td>
+<td><span title="Exact reported cost: $0.001002208333333333333333333333 USD">$0.001002</span></td>
+<td>49.7</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1354.2</td>
+<td><span title="Exact reported cost: $0.000381808 USD">$0.000382</span></td>
+<td>50.0</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1312.1</td>
+<td><span title="Exact reported cost: $0.09083833333333333333333333333 USD">$0.090838</span></td>
+<td>20.7</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1290.5</td>
+<td><span title="Exact reported cost: $0.00044982 USD">$0.000450</span></td>
+<td>44.8</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1240.8</td>
+<td><span title="Exact reported cost: $0.01581075 USD">$0.015811</span></td>
+<td>24.5</td>
+</tr></tbody>
+</table></div>
+</div>
+<p>Value v1 blends 70% Elo-derived quality with 30% affordability. Higher is better under this chosen tradeoff. <a href="#value-method">See the formula and limitations</a>. Mean cost uses the same question weights as Elo; unknown costs are never treated as free.</p>
+<p>Costs are actual USD reported by OpenRouter for saved successful answers, including provider-reported reasoning usage. Zero means reported free; Unknown means no cost was reported. These totals exclude failed/retried attempts and Jev charges, and are not an account invoice. Attempts absent from retained responses and backups remain unknown.</p>
+<p>Latest judgment: Sep 28, 2026, 17:58 UTC.</p>
+</section>
+<section>
+<h2 id="value-chart-title">Quality and cost, together</h2>
+<p>Higher is stronger in Jev's rankings. Further left is cheaper. Solid points mark the observed frontier: no other model is at least as strong and at least as cheap, with one strict improvement. Hover a point for its values.</p>
+<figure>
+<svg aria-label="Weighted Elo versus mean answer cost in USD" height="380" role="img" viewbox="0 0 800 380" width="100%">
+<line stroke="currentColor" stroke-width="1" x1="65" x2="65" y1="55" y2="315"></line><line stroke="currentColor" stroke-width="1" x1="65" x2="755" y1="315" y2="315"></line>
+<text fill="currentColor" font-size="13" x="8" y="60">1750</text><text fill="currentColor" font-size="13" x="8" y="315">1150</text><text fill="currentColor" font-size="13" x="65" y="30">Weighted Elo</text>
+<line stroke="currentColor" stroke-width="1" x1="65.0" x2="65.0" y1="315" y2="321"></line><text fill="currentColor" font-size="13" x="65.0" y="342">$0</text><line stroke="currentColor" stroke-width="1" x1="151.86" x2="151.86" y1="315" y2="321"></line><text fill="currentColor" font-size="13" x="151.86" y="342">$0.001</text><line stroke="currentColor" stroke-width="1" x1="365.5" x2="365.5" y1="315" y2="321"></line><text fill="currentColor" font-size="13" x="365.5" y="342">$0.01</text><line stroke="currentColor" stroke-width="1" x1="643.35" x2="643.35" y1="315" y2="321"></line><text fill="currentColor" font-size="13" x="643.35" y="342">$0.1</text>
+<text fill="currentColor" font-size="13" x="410" y="373">Mean answer cost (USD, log1p scale; includes $0)</text>
+<circle aria-label="MiMo-V2.6-Flash: Elo 1699.3, mean answer cost $0.002859698333333333333333333333 USD; on the observed frontier" cx="234.25" cy="76.99" fill="currentColor" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>MiMo-V2.6-Flash: 1699.3 Elo; $0.002859698333333333333333333333</title></circle><circle aria-label="Claude Fable 5.1: Elo 1682.8, mean answer cost $0.2262933333333333333333333333 USD" cx="745.0" cy="84.14" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Claude Fable 5.1: 1682.8 Elo; $0.2262933333333333333333333333</title></circle><circle aria-label="MiMo V2.6 Pro: Elo 1681.2, mean answer cost $0.010550345 USD" cx="371.61" cy="84.82" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>MiMo V2.6 Pro: 1681.2 Elo; $0.010550345</title></circle><circle aria-label="Claude Opus 5.5: Elo 1663.9, mean answer cost $0.07674733333333333333333333333 USD" cx="610.56" cy="92.29" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Claude Opus 5.5: 1663.9 Elo; $0.07674733333333333333333333333</title></circle><circle aria-label="GLM 5.3 Prime: Elo 1647.8, mean answer cost $0.1651120 USD" cx="705.7" cy="99.3" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>GLM 5.3 Prime: 1647.8 Elo; $0.1651120</title></circle><circle aria-label="GLM 5.3 Flash: Elo 1608.0, mean answer cost $0.004392485 USD" cx="276.16" cy="116.53" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>GLM 5.3 Flash: 1608.0 Elo; $0.004392485</title></circle><circle aria-label="GPT-6 Astra: Elo 1590.5, mean answer cost $0.096045 USD" cx="638.35" cy="124.1" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>GPT-6 Astra: 1590.5 Elo; $0.096045</title></circle><circle aria-label="Muse Spark 1.3 Contributor: Elo 1587.6, mean answer cost $0.001163283333333333333333333333 USD; on the observed frontier" cx="161.7" cy="125.35" fill="currentColor" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Muse Spark 1.3 Contributor: 1587.6 Elo; $0.001163283333333333333333333333</title></circle><circle aria-label="Hy4 preview: Elo 1581.5, mean answer cost $0.02792524333333333333333333333 USD" cx="486.66" cy="128.03" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Hy4 preview: 1581.5 Elo; $0.02792524333333333333333333333</title></circle><circle aria-label="Kimi K3: Elo 1562.5, mean answer cost $0.08226114853333333333333333333 USD" cx="619.15" cy="136.25" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Kimi K3: 1562.5 Elo; $0.08226114853333333333333333333</title></circle><circle aria-label="DeepSeek V4.1 Flash: Elo 1561.4, mean answer cost $0.006077301666666666666666666667 USD" cx="310.23" cy="136.73" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>DeepSeek V4.1 Flash: 1561.4 Elo; $0.006077301666666666666666666667</title></circle><circle aria-label="Space Bunny Alpha: Elo 1549.6, mean answer cost $0 USD; on the observed frontier" cx="65.0" cy="141.83" fill="currentColor" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Space Bunny Alpha: 1549.6 Elo; $0</title></circle><circle aria-label="MiniMax M2.7 (Nitro): Elo 1547.4, mean answer cost $0.0127039 USD" cx="393.04" cy="142.79" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>MiniMax M2.7 (Nitro): 1547.4 Elo; $0.0127039</title></circle><circle aria-label="Qwen3.8 Max Prime: Elo 1534.8, mean answer cost $0.1461226666666666666666666667 USD" cx="690.49" cy="148.27" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Qwen3.8 Max Prime: 1534.8 Elo; $0.1461226666666666666666666667</title></circle><circle aria-label="Nemotron 3 Ultra (free): Elo 1513.8, mean answer cost $0 USD" cx="65.0" cy="157.35" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Nemotron 3 Ultra (free): 1513.8 Elo; $0</title></circle><circle aria-label="gpt-oss-120b: Elo 1481.1, mean answer cost $0.0006473833333333333333333333333 USD" cx="127.56" cy="171.54" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>gpt-oss-120b: 1481.1 Elo; $0.0006473833333333333333333333333</title></circle><circle aria-label="Grok 4.7: Elo 1477.7, mean answer cost $0.03655413333333333333333333333 USD" cx="519.37" cy="173.0" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Grok 4.7: 1477.7 Elo; $0.03655413333333333333333333333</title></circle><circle aria-label="Hy3: Elo 1472.0, mean answer cost $0.005701395333333333333333333333 USD" cx="303.39" cy="175.48" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Hy3: 1472.0 Elo; $0.005701395333333333333333333333</title></circle><circle aria-label="Gemini 3.8 Flash: Elo 1461.1, mean answer cost $0.01241700 USD" cx="390.39" cy="180.2" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Gemini 3.8 Flash: 1461.1 Elo; $0.01241700</title></circle><circle aria-label="DeepSeek V4 Pro: Elo 1430.1, mean answer cost $0.005675268373333333333333333333 USD" cx="302.9" cy="193.63" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>DeepSeek V4 Pro: 1430.1 Elo; $0.005675268373333333333333333333</title></circle><circle aria-label="GPT-6 Luna: Elo 1423.6, mean answer cost $0.00122345 USD" cx="165.14" cy="196.43" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>GPT-6 Luna: 1423.6 Elo; $0.00122345</title></circle><circle aria-label="GPT-6 Sol: Elo 1401.9, mean answer cost $0.01687066666666666666666666667 USD" cx="426.31" cy="205.85" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>GPT-6 Sol: 1401.9 Elo; $0.01687066666666666666666666667</title></circle><circle aria-label="Solar Pro 4: Elo 1397.7, mean answer cost $0.00124800 USD" cx="166.51" cy="207.67" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Solar Pro 4: 1397.7 Elo; $0.00124800</title></circle><circle aria-label="Qwen3.7 Flash: Elo 1375.5, mean answer cost $0.001224756666666666666666666667 USD" cx="165.21" cy="217.29" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Qwen3.7 Flash: 1375.5 Elo; $0.001224756666666666666666666667</title></circle><circle aria-label="gpt-oss-20b (Nitro): Elo 1369.9, mean answer cost $0.001002208333333333333333333333 USD" cx="152.0" cy="219.73" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>gpt-oss-20b (Nitro): 1369.9 Elo; $0.001002208333333333333333333333</title></circle><circle aria-label="Ling 3.0 Flash: Elo 1354.2, mean answer cost $0.000381808 USD" cx="105.53" cy="226.53" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Ling 3.0 Flash: 1354.2 Elo; $0.000381808</title></circle><circle aria-label="Gemini 3.1 Pro Preview: Elo 1312.1, mean answer cost $0.09083833333333333333333333333 USD" cx="631.44" cy="244.77" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Gemini 3.1 Pro Preview: 1312.1 Elo; $0.09083833333333333333333333333</title></circle><circle aria-label="Mercury 2.5: Elo 1290.5, mean answer cost $0.00044982 USD" cx="111.55" cy="254.12" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Mercury 2.5: 1290.5 Elo; $0.00044982</title></circle><circle aria-label="Mistral Medium 3.5: Elo 1240.8, mean answer cost $0.01581075 USD" cx="418.65" cy="275.66" fill="none" r="6" role="img" stroke="currentColor" stroke-width="1.5"><title>Mistral Medium 3.5: 1240.8 Elo; $0.01581075</title></circle>
+</svg>
+<figcaption>Hover a model for its values. All plotted values are also available in the overall table and JSON.</figcaption>
+</figure>
+</section>
+<section>
+<h2 id="questions-title">One question at a time</h2>
+<article>
+<div><div><h3><a href="/jev-benchmark/writing-the-case-for-a-modular-monolith">The case for a modular monolith</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1780.2</td>
+<td><span title="Exact reported cost: $0.00123368 USD">$0.001234</span></td>
+<td>85.1</td>
+<td>28 / 0</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1728.8</td>
+<td><span title="Exact reported cost: $0.00364356 USD">$0.003644</span></td>
+<td>77.2</td>
+<td>26 / 2</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1721.8</td>
+<td><span title="Exact reported cost: $0.058136 USD">$0.058136</span></td>
+<td>59.1</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1682.0</td>
+<td><span title="Exact reported cost: $0.000733 USD">$0.000733</span></td>
+<td>79.8</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1680.9</td>
+<td><span title="Exact reported cost: $0.26799 USD">$0.267990</span></td>
+<td>52.8</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1668.4</td>
+<td><span title="Exact reported cost: $0.0011875 USD">$0.001188</span></td>
+<td>77.6</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1665.6</td>
+<td><span title="Exact reported cost: $0.0992756 USD">$0.099276</span></td>
+<td>53.3</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1654.2</td>
+<td><span title="Exact reported cost: $0.00543905 USD">$0.005439</span></td>
+<td>69.0</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1635.2</td>
+<td><span title="Exact reported cost: $0.021152693 USD">$0.021153</span></td>
+<td>57.6</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1618.7</td>
+<td><span title="Exact reported cost: $0.0589351454 USD">$0.058935</span></td>
+<td>50.9</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1568.4</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>71.8</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1549.8</td>
+<td><span title="Exact reported cost: $0.07585 USD">$0.075850</span></td>
+<td>43.5</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1536.1</td>
+<td><span title="Exact reported cost: $0.150232 USD">$0.150232</span></td>
+<td>40.5</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1504.0</td>
+<td><span title="Exact reported cost: $0.00414158976 USD">$0.004142</span></td>
+<td>56.6</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1495.6</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>64.6</td>
+<td>13 / 15</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1482.7</td>
+<td><span title="Exact reported cost: $0.009816 USD">$0.009816</span></td>
+<td>48.4</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1462.0</td>
+<td><span title="Exact reported cost: $0.0010155 USD">$0.001016</span></td>
+<td>58.4</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1425.5</td>
+<td><span title="Exact reported cost: $0.00309896 USD">$0.003099</span></td>
+<td>50.5</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1412.5</td>
+<td><span title="Exact reported cost: $0.01677 USD">$0.016770</span></td>
+<td>37.6</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1412.4</td>
+<td><span title="Exact reported cost: $0.00048606 USD">$0.000486</span></td>
+<td>55.0</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1404.9</td>
+<td><span title="Exact reported cost: $0.01127625 USD">$0.011276</span></td>
+<td>39.8</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1393.3</td>
+<td><span title="Exact reported cost: $0.000256893 USD">$0.000257</span></td>
+<td>53.8</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1372.4</td>
+<td><span title="Exact reported cost: $0.0055182 USD">$0.005518</span></td>
+<td>42.0</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1322.4</td>
+<td><span title="Exact reported cost: $0.00057776 USD">$0.000578</span></td>
+<td>46.9</td>
+<td>5 / 23</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1296.2</td>
+<td><span title="Exact reported cost: $0.000567 USD">$0.000567</span></td>
+<td>44.9</td>
+<td>4 / 24</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1292.0</td>
+<td><span title="Exact reported cost: $0.039222 USD">$0.039222</span></td>
+<td>22.3</td>
+<td>4 / 24</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1257.4</td>
+<td><span title="Exact reported cost: $0.0144 USD">$0.014400</span></td>
+<td>26.2</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1247.0</td>
+<td><span title="Exact reported cost: $0.00043408 USD">$0.000434</span></td>
+<td>42.0</td>
+<td>1 / 27</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1229.9</td>
+<td><span title="Exact reported cost: $0.000699 USD">$0.000699</span></td>
+<td>40.2</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/writing-the-case-for-a-modular-monolith">Read the prompt, answers, and judgments →</a>
+</article>
+<article>
+<div><div><h3><a href="/jev-benchmark/coding-offline-dynamic-connectivity">Offline dynamic connectivity with rollback</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1721.7</td>
+<td><span title="Exact reported cost: $0.029694405 USD">$0.029694</span></td>
+<td>62.3</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1710.7</td>
+<td><span title="Exact reported cost: $0.00733866 USD">$0.007339</span></td>
+<td>71.3</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1708.4</td>
+<td><span title="Exact reported cost: $0.025938 USD">$0.025938</span></td>
+<td>62.1</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1702.8</td>
+<td><span title="Exact reported cost: $0.2865396 USD">$0.286540</span></td>
+<td>54.4</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1663.0</td>
+<td><span title="Exact reported cost: $0.01142225 USD">$0.011422</span></td>
+<td>64.3</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1642.7</td>
+<td><span title="Exact reported cost: $0.18451 USD">$0.184510</span></td>
+<td>50.2</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1632.1</td>
+<td><span title="Exact reported cost: $0.00223965 USD">$0.002240</span></td>
+<td>72.2</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1619.1</td>
+<td><span title="Exact reported cost: $0.0014526 USD">$0.001453</span></td>
+<td>72.7</td>
+<td>21 / 7</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1615.4</td>
+<td><span title="Exact reported cost: $0.055781562 USD">$0.055782</span></td>
+<td>50.8</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1607.6</td>
+<td><span title="Exact reported cost: $0.39458 USD">$0.394580</span></td>
+<td>46.2</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1583.3</td>
+<td><span title="Exact reported cost: $0.02361975 USD">$0.023620</span></td>
+<td>52.2</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1563.1</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>71.3</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1541.2</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>69.1</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1537.5</td>
+<td><span title="Exact reported cost: $0.129412 USD">$0.129412</span></td>
+<td>40.9</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1502.4</td>
+<td><span title="Exact reported cost: $0.0023506 USD">$0.002351</span></td>
+<td>59.5</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1475.8</td>
+<td><span title="Exact reported cost: $0.01162158 USD">$0.011622</span></td>
+<td>46.4</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1470.1</td>
+<td><span title="Exact reported cost: $0.2411727 USD">$0.241173</span></td>
+<td>33.2</td>
+<td>11 / 17</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1433.0</td>
+<td><span title="Exact reported cost: $0.24266 USD">$0.242660</span></td>
+<td>29.5</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1415.5</td>
+<td><span title="Exact reported cost: $0.388132 USD">$0.388132</span></td>
+<td>27.4</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1400.1</td>
+<td><span title="Exact reported cost: $0.00079844 USD">$0.000798</span></td>
+<td>53.0</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1396.5</td>
+<td><span title="Exact reported cost: $0.00166234 USD">$0.001662</span></td>
+<td>50.6</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1394.5</td>
+<td><span title="Exact reported cost: $0.0014361 USD">$0.001436</span></td>
+<td>50.9</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1379.2</td>
+<td><span title="Exact reported cost: $0.030462 USD">$0.030462</span></td>
+<td>30.7</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1360.0</td>
+<td><span title="Exact reported cost: $0.0653024 USD">$0.065302</span></td>
+<td>25.6</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1356.6</td>
+<td><span title="Exact reported cost: $0.0127207 USD">$0.012721</span></td>
+<td>34.5</td>
+<td>6 / 22</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1306.6</td>
+<td><span title="Exact reported cost: $0.00059724 USD">$0.000597</span></td>
+<td>45.6</td>
+<td>5 / 23</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1274.6</td>
+<td><span title="Exact reported cost: $0.00137358 USD">$0.001374</span></td>
+<td>41.4</td>
+<td>3 / 25</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1265.3</td>
+<td><span title="Exact reported cost: $0.0044410464 USD">$0.004441</span></td>
+<td>35.2</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1221.3</td>
+<td><span title="Exact reported cost: $0.0159765 USD">$0.015977</span></td>
+<td>23.3</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/coding-offline-dynamic-connectivity">Read the prompt, answers, and judgments →</a>
+</article>
+<article>
+<div><div><h3><a href="/jev-benchmark/math-stopping-time-and-variance">A stopping-time expectation and variance</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1782.9</td>
+<td><span title="Exact reported cost: $0.53269 USD">$0.532690</span></td>
+<td>59.1</td>
+<td>28 / 0</td>
+</tr><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1726.0</td>
+<td><span title="Exact reported cost: $0.00600768 USD">$0.006008</span></td>
+<td>73.8</td>
+<td>26 / 2</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1721.4</td>
+<td><span title="Exact reported cost: $0.0034759 USD">$0.003476</span></td>
+<td>77.0</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1717.5</td>
+<td><span title="Exact reported cost: $0.02050329 USD">$0.020503</span></td>
+<td>64.3</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1694.5</td>
+<td><span title="Exact reported cost: $0.38775 USD">$0.387750</span></td>
+<td>53.5</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1687.5</td>
+<td><span title="Exact reported cost: $0.12862 USD">$0.128620</span></td>
+<td>54.4</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1594.1</td>
+<td><span title="Exact reported cost: $0.26596 USD">$0.265960</span></td>
+<td>45.3</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1593.3</td>
+<td><span title="Exact reported cost: $0.0298056 USD">$0.029806</span></td>
+<td>51.7</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1577.3</td>
+<td><span title="Exact reported cost: $0.00093666 USD">$0.000937</span></td>
+<td>70.1</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1564.9</td>
+<td><span title="Exact reported cost: $0.00215805 USD">$0.002158</span></td>
+<td>66.1</td>
+<td>17 / 11</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1563.9</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>71.4</td>
+<td>17 / 11</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1560.5</td>
+<td><span title="Exact reported cost: $0.022731 USD">$0.022731</span></td>
+<td>50.2</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1549.0</td>
+<td><span title="Exact reported cost: $0.16086 USD">$0.160860</span></td>
+<td>41.7</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1536.9</td>
+<td><span title="Exact reported cost: $0.055823728 USD">$0.055824</span></td>
+<td>43.3</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1521.8</td>
+<td><span title="Exact reported cost: $0.1145381458 USD">$0.114538</span></td>
+<td>39.6</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1518.3</td>
+<td><span title="Exact reported cost: $0.015661932 USD">$0.015662</span></td>
+<td>48.5</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1503.6</td>
+<td><span title="Exact reported cost: $0.01153061 USD">$0.011531</span></td>
+<td>49.3</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1490.6</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>64.1</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1439.9</td>
+<td><span title="Exact reported cost: $0.000866103 USD">$0.000866</span></td>
+<td>56.6</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1375.8</td>
+<td><span title="Exact reported cost: $0.027982 USD">$0.027982</span></td>
+<td>30.9</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1372.5</td>
+<td><span title="Exact reported cost: $0.0022066 USD">$0.002207</span></td>
+<td>47.3</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1361.0</td>
+<td><span title="Exact reported cost: $0.00144666 USD">$0.001447</span></td>
+<td>47.9</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1355.1</td>
+<td><span title="Exact reported cost: $0.182064 USD">$0.182064</span></td>
+<td>22.8</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1352.7</td>
+<td><span title="Exact reported cost: $0.01175795 USD">$0.011758</span></td>
+<td>34.8</td>
+<td>6 / 22</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1324.4</td>
+<td><span title="Exact reported cost: $0.0047408032 USD">$0.004741</span></td>
+<td>39.0</td>
+<td>5 / 23</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1277.7</td>
+<td><span title="Exact reported cost: $0.1200544 USD">$0.120054</span></td>
+<td>17.5</td>
+<td>3 / 25</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1266.0</td>
+<td><span title="Exact reported cost: $0.00070851 USD">$0.000709</span></td>
+<td>42.5</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1243.0</td>
+<td><span title="Exact reported cost: $0.00324148 USD">$0.003241</span></td>
+<td>35.6</td>
+<td>1 / 27</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1227.8</td>
+<td><span title="Exact reported cost: $0.047226 USD">$0.047226</span></td>
+<td>17.3</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/math-stopping-time-and-variance">Read the prompt, answers, and judgments →</a>
+</article>
+<article>
+<div><div><h3><a href="/jev-benchmark/personal-friendship-compassion-and-boundaries">Being a good friend without abandoning your boundaries</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1724.4</td>
+<td><span title="Exact reported cost: $0.0503104 USD">$0.050310</span></td>
+<td>59.9</td>
+<td>26 / 2</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1724.2</td>
+<td><span title="Exact reported cost: $0.08193 USD">$0.081930</span></td>
+<td>58.2</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1723.9</td>
+<td><span title="Exact reported cost: $0.0005046 USD">$0.000505</span></td>
+<td>83.4</td>
+<td>26 / 2</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1710.5</td>
+<td><span title="Exact reported cost: $0.04907 USD">$0.049070</span></td>
+<td>59.0</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1699.8</td>
+<td><span title="Exact reported cost: $0.0509079 USD">$0.050908</span></td>
+<td>58.1</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1666.0</td>
+<td><span title="Exact reported cost: $0.035472 USD">$0.035472</span></td>
+<td>57.2</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1653.3</td>
+<td><span title="Exact reported cost: $0.0021089 USD">$0.002109</span></td>
+<td>74.3</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1635.3</td>
+<td><span title="Exact reported cost: $0.0008765 USD">$0.000877</span></td>
+<td>75.6</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1633.9</td>
+<td><span title="Exact reported cost: $0.013975692 USD">$0.013976</span></td>
+<td>60.4</td>
+<td>21 / 7</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1625.6</td>
+<td><span title="Exact reported cost: $0.001057485 USD">$0.001057</span></td>
+<td>74.3</td>
+<td>21 / 7</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1611.9</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>75.9</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1558.7</td>
+<td><span title="Exact reported cost: $0.00038664 USD">$0.000387</span></td>
+<td>69.7</td>
+<td>18 / 10</td>
+</tr><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1529.8</td>
+<td><span title="Exact reported cost: $0.00017269 USD">$0.000173</span></td>
+<td>67.5</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1513.2</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>66.3</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1489.7</td>
+<td><span title="Exact reported cost: $0.00029838 USD">$0.000298</span></td>
+<td>63.1</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1466.0</td>
+<td><span title="Exact reported cost: $0.0035562 USD">$0.003556</span></td>
+<td>53.7</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1454.8</td>
+<td><span title="Exact reported cost: $0.0005927 USD">$0.000593</span></td>
+<td>58.8</td>
+<td>11 / 17</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1436.0</td>
+<td><span title="Exact reported cost: $0.0018961536 USD">$0.001896</span></td>
+<td>53.8</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1416.6</td>
+<td><span title="Exact reported cost: $0.00212244 USD">$0.002122</span></td>
+<td>51.5</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1409.3</td>
+<td><span title="Exact reported cost: $0.008394 USD">$0.008394</span></td>
+<td>42.4</td>
+<td>10 / 18</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1408.0</td>
+<td><span title="Exact reported cost: $0.023564 USD">$0.023564</span></td>
+<td>34.9</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1386.2</td>
+<td><span title="Exact reported cost: $0.006072 USD">$0.006072</span></td>
+<td>42.6</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1384.0</td>
+<td><span title="Exact reported cost: $0.00732675 USD">$0.007327</span></td>
+<td>41.0</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1334.8</td>
+<td><span title="Exact reported cost: $0.00031309 USD">$0.000313</span></td>
+<td>48.6</td>
+<td>5 / 23</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1293.3</td>
+<td><span title="Exact reported cost: $0.02802 USD">$0.028020</span></td>
+<td>24.2</td>
+<td>4 / 24</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1277.6</td>
+<td><span title="Exact reported cost: $0.00040875 USD">$0.000409</span></td>
+<td>44.0</td>
+<td>3 / 25</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1260.5</td>
+<td><span title="Exact reported cost: $0.0059835 USD">$0.005984</span></td>
+<td>32.9</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1250.6</td>
+<td><span title="Exact reported cost: $0.00040078 USD">$0.000401</span></td>
+<td>42.3</td>
+<td>1 / 27</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1221.9</td>
+<td><span title="Exact reported cost: $0.000156786 USD">$0.000157</span></td>
+<td>41.3</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/personal-friendship-compassion-and-boundaries">Read the prompt, answers, and judgments →</a>
+</article>
+<article>
+<div><div><h3><a href="/jev-benchmark/support-rollout-analysis-v1">Read a rollout experiment without fooling yourself</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1756.5</td>
+<td><span title="Exact reported cost: $0.0121072 USD">$0.012107</span></td>
+<td>70.6</td>
+<td>27 / 1</td>
+</tr><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1731.6</td>
+<td><span title="Exact reported cost: $0.0016121 USD">$0.001612</span></td>
+<td>81.2</td>
+<td>26 / 2</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1707.1</td>
+<td><span title="Exact reported cost: $0.005752875 USD">$0.005753</span></td>
+<td>72.7</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1690.0</td>
+<td><span title="Exact reported cost: $0.00285375 USD">$0.002854</span></td>
+<td>75.8</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1686.7</td>
+<td><span title="Exact reported cost: $0.14286 USD">$0.142860</span></td>
+<td>54.1</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1637.0</td>
+<td><span title="Exact reported cost: $0.0005279 USD">$0.000528</span></td>
+<td>76.6</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1633.4</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>77.8</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1618.7</td>
+<td><span title="Exact reported cost: $0.06117 USD">$0.061170</span></td>
+<td>50.7</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1613.6</td>
+<td><span title="Exact reported cost: $0.065984 USD">$0.065984</span></td>
+<td>50.0</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1613.4</td>
+<td><span title="Exact reported cost: $0.030976 USD">$0.030976</span></td>
+<td>53.4</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1572.6</td>
+<td><span title="Exact reported cost: $0.00081745 USD">$0.000817</span></td>
+<td>69.9</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1549.2</td>
+<td><span title="Exact reported cost: $0.012338389 USD">$0.012338</span></td>
+<td>53.4</td>
+<td>17 / 11</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1544.9</td>
+<td><span title="Exact reported cost: $0.013937 USD">$0.013937</span></td>
+<td>52.0</td>
+<td>16 / 12</td>
+</tr><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1504.7</td>
+<td><span title="Exact reported cost: $0.0124548 USD">$0.012455</span></td>
+<td>48.8</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1499.6</td>
+<td><span title="Exact reported cost: $0.0009387675 USD">$0.000939</span></td>
+<td>62.4</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1496.6</td>
+<td><span title="Exact reported cost: $0.0054255 USD">$0.005426</span></td>
+<td>54.1</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1472.5</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>62.2</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1468.1</td>
+<td><span title="Exact reported cost: $0.010014 USD">$0.010014</span></td>
+<td>46.8</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1450.2</td>
+<td><span title="Exact reported cost: $0.0059898 USD">$0.005990</span></td>
+<td>48.8</td>
+<td>11 / 17</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1415.8</td>
+<td><span title="Exact reported cost: $0.01305671104 USD">$0.013057</span></td>
+<td>39.7</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1406.7</td>
+<td><span title="Exact reported cost: $0.00072499 USD">$0.000725</span></td>
+<td>53.8</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1388.1</td>
+<td><span title="Exact reported cost: $0.00049295 USD">$0.000493</span></td>
+<td>52.7</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1385.8</td>
+<td><span title="Exact reported cost: $0.0007002 USD">$0.000700</span></td>
+<td>51.9</td>
+<td>8 / 20</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1318.2</td>
+<td><span title="Exact reported cost: $0.00019357 USD">$0.000194</span></td>
+<td>47.6</td>
+<td>5 / 23</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1310.7</td>
+<td><span title="Exact reported cost: $0.000258657 USD">$0.000259</span></td>
+<td>46.9</td>
+<td>4 / 24</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1293.2</td>
+<td><span title="Exact reported cost: $0.00179748 USD">$0.001797</span></td>
+<td>41.8</td>
+<td>4 / 24</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1259.3</td>
+<td><span title="Exact reported cost: $0.026318 USD">$0.026318</span></td>
+<td>22.3</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1246.7</td>
+<td><span title="Exact reported cost: $0.006441 USD">$0.006441</span></td>
+<td>31.5</td>
+<td>1 / 27</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1229.2</td>
+<td><span title="Exact reported cost: $0.00029781 USD">$0.000298</span></td>
+<td>41.3</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/support-rollout-analysis-v1">Read the prompt, answers, and judgments →</a>
+</article>
+<article>
+<div><div><h3><a href="/jev-benchmark/incident-evidence-synthesis-v1">Turn conflicting incident notes into a reliable brief</a></h3></div><span>406 / 406 pairs</span></div>
+<div>
+<div><span>All models <span>of 29 models</span></span></div>
+<div aria-label="Per-question rankings" role="region" tabindex="0">
+<table><caption>Model rankings. Value is an experimental quality and affordability blend. Costs are actual reported USD.</caption>
+<thead><tr><th>Model</th><th>Elo</th><th>Answer cost</th><th>Value / 100</th><th>W / L</th></tr></thead>
+<tbody><tr>
+<th>Claude Opus 5.5<span>Anthropic</span></th>
+<td>1757.3</td>
+<td><span title="Exact reported cost: $0.04286 USD">$0.042860</span></td>
+<td>62.7</td>
+<td>27 / 1</td>
+</tr><tr>
+<th>MiMo-V2.6-Flash<span>Xiaomi</span></th>
+<td>1717.3</td>
+<td><span title="Exact reported cost: $0.00079338 USD">$0.000793</span></td>
+<td>82.2</td>
+<td>25 / 3</td>
+</tr><tr>
+<th>Claude Fable 5.1<span>Anthropic</span></th>
+<td>1702.6</td>
+<td><span title="Exact reported cost: $0.08265 USD">$0.082650</span></td>
+<td>56.6</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>MiniMax M2.7 (Nitro)<span>MiniMax</span></th>
+<td>1694.2</td>
+<td><span title="Exact reported cost: $0.0054156 USD">$0.005416</span></td>
+<td>72.2</td>
+<td>24 / 4</td>
+</tr><tr>
+<th>DeepSeek V4.1 Flash<span>DeepSeek</span></th>
+<td>1661.7</td>
+<td><span title="Exact reported cost: $0.00158346 USD">$0.001583</span></td>
+<td>76.1</td>
+<td>23 / 5</td>
+</tr><tr>
+<th>Qwen3.8 Max Prime<span>Alibaba / Qwen</span></th>
+<td>1641.5</td>
+<td><span title="Exact reported cost: $0.017872 USD">$0.017872</span></td>
+<td>59.3</td>
+<td>22 / 6</td>
+</tr><tr>
+<th>DeepSeek V4 Pro<span>DeepSeek</span></th>
+<td>1635.2</td>
+<td><span title="Exact reported cost: $0.00577530624 USD">$0.005775</span></td>
+<td>67.0</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>GLM 5.3 Flash<span>Z.ai</span></th>
+<td>1605.0</td>
+<td><span title="Exact reported cost: $0.0005206 USD">$0.000521</span></td>
+<td>73.8</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>Grok 4.7<span>xAI</span></th>
+<td>1603.0</td>
+<td><span title="Exact reported cost: $0.0059728 USD">$0.005973</span></td>
+<td>63.9</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>Solar Pro 4<span>Upstage</span></th>
+<td>1602.3</td>
+<td><span title="Exact reported cost: $0.00191664 USD">$0.001917</span></td>
+<td>70.2</td>
+<td>20 / 8</td>
+</tr><tr>
+<th>MiMo V2.6 Pro<span>Xiaomi</span></th>
+<td>1586.4</td>
+<td><span title="Exact reported cost: $0.002650455 USD">$0.002650</span></td>
+<td>67.2</td>
+<td>19 / 9</td>
+</tr><tr>
+<th>Qwen3.7 Flash<span>Qwen</span></th>
+<td>1549.5</td>
+<td><span title="Exact reported cost: $0.00082888 USD">$0.000829</span></td>
+<td>67.7</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Kimi K3<span>Moonshot AI</span></th>
+<td>1519.7</td>
+<td><span title="Exact reported cost: $0.014076 USD">$0.014076</span></td>
+<td>49.4</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>Hy4 preview<span>Tencent</span></th>
+<td>1518.2</td>
+<td><span title="Exact reported cost: $0.008479396 USD">$0.008479</span></td>
+<td>53.1</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Space Bunny Alpha<span>Stealth</span></th>
+<td>1517.9</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>66.8</td>
+<td>15 / 13</td>
+</tr><tr>
+<th>GLM 5.3 Prime<span>Z.ai</span></th>
+<td>1506.3</td>
+<td><span title="Exact reported cost: $0.0094016 USD">$0.009402</span></td>
+<td>51.1</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>Hy3<span>Tencent</span></th>
+<td>1496.0</td>
+<td><span title="Exact reported cost: $0.0007646925 USD">$0.000765</span></td>
+<td>62.5</td>
+<td>14 / 14</td>
+</tr><tr>
+<th>GPT-6 Astra<span>OpenAI</span></th>
+<td>1472.5</td>
+<td><span title="Exact reported cost: $0.04481 USD">$0.044810</span></td>
+<td>37.7</td>
+<td>13 / 15</td>
+</tr><tr>
+<th>Ling 3.0 Flash<span>inclusionAI</span></th>
+<td>1452.6</td>
+<td><span title="Exact reported cost: $0.000155169 USD">$0.000155</span></td>
+<td>59.8</td>
+<td>12 / 16</td>
+</tr><tr>
+<th>Nemotron 3 Ultra (free)<span>NVIDIA</span></th>
+<td>1408.7</td>
+<td><span title="Exact reported cost: $0 USD">$0.000000</span></td>
+<td>56.0</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>gpt-oss-120b<span>OpenAI</span></th>
+<td>1399.7</td>
+<td><span title="Exact reported cost: $0.00021765 USD">$0.000218</span></td>
+<td>54.5</td>
+<td>9 / 19</td>
+</tr><tr>
+<th>Muse Spark 1.3 Contributor<span>Meta</span></th>
+<td>1367.2</td>
+<td><span title="Exact reported cost: $0.0003022 USD">$0.000302</span></td>
+<td>51.4</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>GPT-6 Sol<span>OpenAI</span></th>
+<td>1366.4</td>
+<td><span title="Exact reported cost: $0.007602 USD">$0.007602</span></td>
+<td>39.2</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>GPT-6 Luna<span>OpenAI</span></th>
+<td>1364.3</td>
+<td><span title="Exact reported cost: $0.0004751 USD">$0.000475</span></td>
+<td>50.6</td>
+<td>7 / 21</td>
+</tr><tr>
+<th>Gemini 3.8 Flash<span>Google</span></th>
+<td>1337.1</td>
+<td><span title="Exact reported cost: $0.00412275 USD">$0.004123</span></td>
+<td>40.9</td>
+<td>6 / 22</td>
+</tr><tr>
+<th>gpt-oss-20b (Nitro)<span>OpenAI</span></th>
+<td>1285.5</td>
+<td><span title="Exact reported cost: $0.00020999 USD">$0.000210</span></td>
+<td>45.2</td>
+<td>3 / 25</td>
+</tr><tr>
+<th>Mercury 2.5<span>Inception</span></th>
+<td>1261.0</td>
+<td><span title="Exact reported cost: $0.00016354 USD">$0.000164</span></td>
+<td>43.6</td>
+<td>2 / 26</td>
+</tr><tr>
+<th>Gemini 3.1 Pro Preview<span>Google</span></th>
+<td>1239.7</td>
+<td><span title="Exact reported cost: $0.026746 USD">$0.026746</span></td>
+<td>21.0</td>
+<td>1 / 27</td>
+</tr><tr>
+<th>Mistral Medium 3.5<span>Mistral</span></th>
+<td>1231.1</td>
+<td><span title="Exact reported cost: $0.0048375 USD">$0.004838</span></td>
+<td>32.5</td>
+<td>0 / 28</td>
+</tr></tbody>
+</table></div>
+</div>
+<a href="/jev-benchmark/incident-evidence-synthesis-v1">Read the prompt, answers, and judgments →</a>
+</article>
+</section>
+<section id="methodology">
+<h2 id="methodology-title">Methodology</h2>
+<div id="value-method"><h3>Value score v1</h3><p>Quality q = 1 / (1 + 10<sup>((1500 − Elo) / 400)</sup>). Affordability a = 1 / (1 + cost / $0.01). <strong>Value = 100 × (0.7q + 0.3a).</strong></p><p>The 70/30 blend and one-cent reference are explicit design choices, not learned truths. Quality is an Elo-implied preference against a 1,500-rated reference, not factual accuracy. Free answers receive finite scores; unknown costs and incomplete scopes are not scored. Overall cost is the question-weighted mean per saved answer. Free-tier availability and prices can change.</p></div>
+<div>
+<div><h3>One answer. Every opponent.</h3><p>Each model answers each question once, without tools or web access. The same prompt goes to every model; provider-default sampling settings apply. Reasoning effort can be explicitly configured on a new question version; existing inputs are frozen after use. Answers start with each model's configured output budget. Failed, truncated answers may be retried with an explicitly raised allowance, recorded on each answer. Truncated or failed answers are not scored.</p><p>Each unordered pair is judged once. Model labels are omitted from the judge's input, and A/B presentation is assigned by a stable hash. Answers may still reveal their origin. Probabilities and confidence are saved alongside each decision.</p></div>
+<div><h3>Reproducible Elo</h3><p>Every question starts all models at 1,500. Each stored win/loss is replayed once with K = 32 in a stable, hashed model-ID order. That makes the same dataset reproducible, not order-independent. Adding opponents can change existing ratings without rejudging their old matches.</p><p>Question weights default to one. The overall score is the weighted arithmetic mean of complete per-question ratings. Pending models have no overall rank; per-question results remain provisional until the round robin is complete.</p></div>
+<div><h3>A preference experiment</h3><p>Jev selects a winner, not a verified truth. This small sample measures one judge's preferences on these prompts, not general model ability. Code is not executed and mathematical proofs are not independently verified. A single presentation per pair does not eliminate position bias.</p><p>Confidence describes Jev's decision distribution; it is not the probability that the answer is factually correct. No repeated trials, error bars, or statistical-significance claims are implied.</p></div>
+</div>
+</section>
+<section><h2>Use this as a source</h2><p>The <a href="/jev-benchmark/data.json">full JSON dataset</a> includes prompts, rubrics, original answers, generation settings, costs, attempt history, and every pairwise decision. The <a href="/jev-benchmark/methodology.md">agent-readable methodology</a> explains the schema and scoring. Save an export with its timestamp and SHA-256 checksum when citing a report: this live benchmark changes as questions and models are added.</p></section>
+</div>

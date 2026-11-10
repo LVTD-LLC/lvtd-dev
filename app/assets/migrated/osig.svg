@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="logo-square-title">
+  <title id="logo-square-title">OSIG logo</title>
+  <rect width="500" height="500" rx="110" fill="#101827"/>
+  <rect x="110" y="135" width="280" height="230" rx="40" fill="none" stroke="#f8fafc" stroke-width="40"/>
+  <path d="M130 170h40v160h-40z" fill="#2f6df6"/>
+  <path d="M225 210h110M225 290h70" stroke="#f8fafc" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="360" cy="345" r="35" fill="#2f6df6"/>
+</svg>

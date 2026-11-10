@@ -1,3 +1,42 @@
+# LVTD preview website
+
+Public repository: https://github.com/LVTD-LLC/lvtd-dev
+
+Preview: https://lvtd-dev.cr.lvtd.dev
+
+Generated with every available ShipRust option, template `428d214`. The generated
+screen layout, typography, themes, and CSS are retained. LVTD copy and public
+content replace the sample copy; projects, research, AI Steering, Hosted OpenClaw,
+legal pages, two blog articles, and all six public Jev question pages are included.
+Existing trailing-slash blog URLs and `/tos/` redirect to their canonical pages.
+
+`app/src/studio.rs` registers imported public pages. Their semantic HTML lives in
+`app/content/site/`, without the old site's CSS or scripts. Blog articles use the
+normal generated Markdown collection. The Jev pages, JSON evidence bundle, and
+methodology are a **10 November 2026 public snapshot**, not a replacement for the
+Django benchmark coordinator or its paid jobs. Refresh those files deliberately
+when you want newer results. The public benchmark JSON retains its source export
+timestamp and checksum.
+
+The **Deploy preview** GitHub Action builds on GitHub-hosted Ubuntu runners,
+publishes the image to GHCR, deploys `lvtd-dev` and `lvtd-dev-worker` to CapRover,
+and verifies the exact commit via `/healthz`. Runtime secrets stay in CapRover;
+GitHub stores only the instance URL and separate app deployment tokens. The
+preview uses its own Postgres database and persistent upload volume. IndexNow is
+disabled. No production domain is attached and the current `lvtd-site` app,
+database, and workers are excluded from deployment.
+
+All integrations are compiled in. Mailgun verification uses the existing LVTD
+mail configuration and a new verification signing key. OAuth clients, Stripe
+billing, Sentry, PostHog, and Qdrant remain inactive until configured for this
+application; local persistent storage works without an S3 bucket. The preview
+service page accepts inquiries by email, and does not initiate live checkout.
+The generated account, API, MCP, docs, and billing surfaces remain available.
+
+The sections below are ShipRust's generated development and integration guide.
+
+---
+
 # LVTD
 
 A SaaS starter in Rust. Axum, Maud, Postgres, one static binary.

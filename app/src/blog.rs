@@ -9,7 +9,7 @@ use serde::Deserialize;
 use std::collections::HashSet;
 use time::{Date, format_description::well_known::Rfc2822, macros::format_description};
 
-pub const DESCRIPTION: &str = "News, updates, and stories from our team.";
+pub const DESCRIPTION: &str = "Notes from shipping: product engineering, automation, and research at LVTD.";
 
 #[derive(Embed)]
 #[folder = "content/blog/"]

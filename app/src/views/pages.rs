@@ -4,59 +4,33 @@ use maud::{Markup, html};
 #[cfg(feature = "auth")]
 use time::macros::format_description;
 
-/// Placeholder homepage. Replace the copy, keep the shape: one idea per
-/// screen, headlines in plain words (AGENTS.md, "Landing page").
+/// LVTD copy in the generated ShipRust screen layout.
 pub fn home() -> Markup {
     html! {
         section class="hero screen" {
-            h1 { "Say what it does." br; span class="screen-title-soft" { "In plain words." } }
-            p class="lede" {
-                "Replace this with one sentence your mum would understand: "
-                "who LVTD is for and what it does for them. Keep it under twenty words."
-            }
-            div class="cta" {
-                @if cfg!(feature = "auth") {
-                    a class="btn btn-primary btn-lg" href="/sign-up" { "Create an account" }
-                    a class="btn btn-lg" href="/sign-in" { "Sign in" }
-                } @else {
-                    (contact_button())
-                }
-            }
+            h1 { "From idea" br; span class="screen-title-soft" { "to credible software." } }
+            p class="lede" { "LVTD scopes, builds, and launches focused MVPs. Fast, finished, and ready for users." }
+            div class="cta" { (contact_button()) a class="btn btn-lg" href="/projects/" { "See the proof" } }
         }
         section class="screen" aria-labelledby="idea-title" {
-            h2 class="screen-title" id="idea-title" { "One idea." br; span class="screen-title-soft" { "One screen." } }
-            p class="screen-sub" {
-                "Give each benefit its own screen, like posts in a feed. "
-                "Lead with what your customer gets, not how it is built, and cut anything a visitor would skim past."
-            }
+            h2 class="screen-title" id="idea-title" { "One builder." br; span class="screen-title-soft" { "One complete first release." } }
+            p class="screen-sub" { "Scope, product, code, deployment, and launch - handled. Bring the messy idea. Leave with working software. We choose the user, the problem, and the first useful release, then build, test, and launch it." }
         }
         section class="screen" aria-labelledby="proof-title" {
-            h2 class="screen-title" id="proof-title" { "Use a real number." br; span class="screen-title-soft" { "Then prove it." } }
-            p class="screen-sub" {
-                "\"Saves 3 hours a week\" beats \"boosts productivity\". "
-                "Use a figure you measured, and say how you measured it in small print underneath."
-            }
+            h2 class="screen-title" id="proof-title" { "A focused MVP," br; span class="screen-title-soft" { "done for you." } }
+            p class="screen-sub" { "Reserve implementation with a $100 deposit. Final price: $5,000." }
+            p class="muted small" { "LVTD's current MVP service offer. Scope is agreed before implementation." }
+            div class="cta" { a class="btn" href="/projects/" { "View projects" } a class="btn" href="/services/hosted-openclaw/" { "Managed OpenClaw" } }
         }
         section class="screen" aria-labelledby="start-title" {
-            h2 class="screen-title" id="start-title" { "Ask for one thing." }
-            p class="screen-sub" {
-                "End with the single action you want visitors to take, "
-                "using the same words as the button at the top of the page."
-            }
-            div class="cta" {
-                @if cfg!(feature = "auth") {
-                    a class="btn btn-primary btn-lg" href="/sign-up" { "Create an account" }
-                } @else {
-                    (contact_button())
-                }
-            }
+            h2 class="screen-title" id="start-title" { "Have an MVP in mind?" }
+            p class="screen-sub" { "Send the idea. A short brief is enough. Tell us who it helps, what you need to change, and the constraints that matter." }
+            div class="cta" { (contact_button()) }
         }
     }
 }
-
-/// The call to action of a site without accounts.
 fn contact_button() -> Markup {
-    html! { a class="btn btn-primary btn-lg" href={ "mailto:" (super::legal::CONTACT_EMAIL) } { "Get in touch" } }
+    html! { a class="btn btn-primary btn-lg" href="mailto:rasul@lvtd.dev" { "Start your MVP" } }
 }
 
 #[cfg(feature = "auth")]

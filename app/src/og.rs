@@ -59,6 +59,12 @@ pub fn load(
             title: crate::views::HOME_TITLE.into(),
             description: crate::views::SITE_DESCRIPTION.into(),
         }];
+        pages.extend(crate::studio::PAGES.iter().map(|page| Page {
+            path: page.path.into(),
+            label: "LVTD".into(),
+            title: page.title.into(),
+            description: page.description.into(),
+        }));
         pages.extend(crate::views::company::PAGES.iter().map(|&(path, title, description)| Page {
             path: path.into(),
             label: "Company".into(),

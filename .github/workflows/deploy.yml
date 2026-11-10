@@ -20,7 +20,7 @@
 #
 # Tests are not run here; run the AGENTS.md "done" checks locally before
 # pushing to main.
-name: Deploy production
+name: Deploy preview
 
 on:
   push:
@@ -28,7 +28,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: production-deploy
+  group: preview-deploy
   cancel-in-progress: false
 
 permissions:
