@@ -85,7 +85,7 @@ jobs:
           bash scripts/ci/mutation-test.sh "$base"
       - name: Save mutation report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mutation-project
           path: mutants.out
@@ -135,7 +135,7 @@ jobs:
       - run: cargo install cargo-deny --version 0.20.2 --locked
       - run: cargo deny --manifest-path fuzz/Cargo.toml --config deny.toml check
       - run: bash scripts/fuzz.sh 30
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: fuzz-${{ github.run_id }}
@@ -179,7 +179,7 @@ jobs:
       - run: bash scripts/coverage.sh
         env:
           CARGO_TARGET_DIR: ${{ runner.temp }}/branch-coverage
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: branch-coverage
           path: target/coverage/
